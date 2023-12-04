@@ -61,7 +61,7 @@ set recolor-lightcolor \"#ffe1ba\"\n" "$HOME"/.config/zathura/zathurarc
 "catppuccin")
 	sed -i "1,/^$/\
 c\-- Recoloring\n\
-set default-bg               \"#1E1E2E\"\n\
+set default-bg               \"#272839\"\n\
 set statusbar-bg             \"#313244\"\n\
 set recolor-lightcolor       \"#1E1E2E\"\n\
 set recolor-darkcolor        \"#CDD6F4\"\n\

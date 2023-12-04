@@ -10,7 +10,6 @@ cp  ~/.zshrc        ~/Disk_D/Muhammad/Repositories/DotFiles/
 
 cp  -r  ~/.fonts               ~/Disk_D/Muhammad/Repositories/DotFiles/
 cp  -r  ~/.icons               ~/Disk_D/Muhammad/Repositories/DotFiles/
-cp  -r  ~/Scripts              ~/Disk_D/Muhammad/Repositories/DotFiles/
 
 cp  -r  ~/.config/Kvantum      ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  ~/.config/Thunar       ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
