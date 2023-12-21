@@ -20,17 +20,3 @@ if [ "$arabic_count" -gt "$english_count" ]; then
 else
 	xdg-open "$en_to_ar&text=$text"
 fi
-
-# choice=$(printf "Translate English\nTranslate Arabic" | rofi -dmenu \
-#     -p "Choice : " \
-#     -theme ~/.config/rofi/oneliner.rasi
-# )
-#
-# if [ -z "$choice" ]; then
-#     exit 2
-# fi
-#
-# case $choice in
-#     "Translate English") xdg-open "$en_to_ar&text=$text" ;;
-#     "Translate Arabic") xdg-open "$ar_to_en&text=$text" ;;
-# esac

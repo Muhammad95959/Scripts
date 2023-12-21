@@ -1,42 +1,52 @@
-cp  ~/.Xresources   ~/Disk_D/Muhammad/Repositories/DotFiles/
-cp  ~/.gtkrc-2.0    ~/Disk_D/Muhammad/Repositories/DotFiles/
-cp  ~/.hidden       ~/Disk_D/Muhammad/Repositories/DotFiles/
-cp  ~/.ideavimrc    ~/Disk_D/Muhammad/Repositories/DotFiles/
-cp  ~/.inputrc      ~/Disk_D/Muhammad/Repositories/DotFiles/
-cp  ~/.p10k.zsh     ~/Disk_D/Muhammad/Repositories/DotFiles/
-cp  ~/.xinitrc      ~/Disk_D/Muhammad/Repositories/DotFiles/
-cp  ~/.xprofile     ~/Disk_D/Muhammad/Repositories/DotFiles/
-cp  ~/.zshrc        ~/Disk_D/Muhammad/Repositories/DotFiles/
+cp  "$HOME"/.Xresources   /mnt/Disk_D/Muhammad/Repositories/DotFiles/
+cp  "$HOME"/.gtkrc-2.0    /mnt/Disk_D/Muhammad/Repositories/DotFiles/
+cp  "$HOME"/.hidden       /mnt/Disk_D/Muhammad/Repositories/DotFiles/
+cp  "$HOME"/.ideavimrc    /mnt/Disk_D/Muhammad/Repositories/DotFiles/
+cp  "$HOME"/.inputrc      /mnt/Disk_D/Muhammad/Repositories/DotFiles/
+cp  "$HOME"/.p10k.zsh     /mnt/Disk_D/Muhammad/Repositories/DotFiles/
+cp  "$HOME"/.xinitrc      /mnt/Disk_D/Muhammad/Repositories/DotFiles/
+cp  "$HOME"/.xprofile     /mnt/Disk_D/Muhammad/Repositories/DotFiles/
+cp  "$HOME"/.zshrc        /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 
-cp  -r  ~/.fonts               ~/Disk_D/Muhammad/Repositories/DotFiles/
-cp  -r  ~/.icons               ~/Disk_D/Muhammad/Repositories/DotFiles/
+cp  -r  "$HOME"/.fonts               /mnt/Disk_D/Muhammad/Repositories/DotFiles/
+cp  -r  "$HOME"/.icons               /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 
-cp  -r  ~/.config/Kvantum      ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/Thunar       ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/alacritty    ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/deadd        ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/fontconfig   ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/gtk-2.0      ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/gtk-3.0      ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/gtk-4.0      ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/i3           ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/kitty        ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/lf           ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/mpv          ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/nomacs       ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/nvim         ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/octave       ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/picom        ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/polybar      ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/qutebrowser  ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/ranger       ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/rofi         ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/vimiv        ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/zathura      ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/zsh          ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/Kvantum      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/Thunar       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/alacritty    /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/deadd        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/fontconfig   /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/gtk-2.0      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/gtk-3.0      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/gtk-4.0      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/i3           /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/kitty        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/lf           /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/mpv          /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/nomacs       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/nvim         /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/octave       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/picom        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/polybar      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/qutebrowser  /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/ranger       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/rofi         /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/vimiv        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/zathura      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/zsh          /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 
-cp  -r  ~/.config/QtProject.conf  ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/okularpartrc    ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  ~/.config/okularrc        ~/Disk_D/Muhammad/Repositories/DotFiles/.config/
-                  
+cp  -r  "$HOME"/.config/QtProject.conf  /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/okularpartrc    /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/okularrc        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+
+cp  -r /usr/share/pixmaps/volnoti                    /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
+cp  /etc/NetworkManager/conf.d/20-connectivity.conf  /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
+cp  /etc/lightdm/background.jpg                      /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
+cp  /etc/interception-vimproved/config.yaml          /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
+cp  /etc/environment                                 /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
+cp  /etc/interception/udevmon.d/my-udevmon.yaml      /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
+cp  /etc/modprobe.d/nobeep.conf                      /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
+cp  /etc/lightdm/slick-greeter.conf                  /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
+cp  /etc/samba/smb.conf                              /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
+
 notify-send -t 3000 "updated DotFiles repo"
