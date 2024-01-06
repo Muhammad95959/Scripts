@@ -29,11 +29,9 @@ toDownload=""
 case $pChoice in
     1) 
         read -rp "$(blueText "\nthe videos in the format [ eg: 1,3-7,13 ] : ")" pVideos
-        toDownload="--playlist-items $pVideos" ;;
+        toDownload="--playlist-items=$pVideos" ;;
     *) ;;
 esac
-
-# pFirstVideo="--playlist-items $(echo $pVideos | awk -F',' '{print $1}' | sed 's/-.*//')"
 
 read -rp "$(blueText "
 download options:- 
@@ -46,9 +44,9 @@ your choice : ")" choice
 
 case $choice in
     1) yt-dlp -F "$toDownload" "$url" ;;
-    2) yt-dlp -F "$toDownload" "$url" | grep -i 'audio only' ;;
-    3) yt-dlp -F "$toDownload" "$url" | grep -i 'video only' ;;
-    *) yt-dlp -F "$toDownload" "$url" | sed '/images/d;/audio\ only/d;/video\ only/d' ;;
+    2) yt-dlp -F "$toDownload" "$url" | grep -i 'audio only\|^\[download' ;;
+    3) yt-dlp -F "$toDownload" "$url" | grep -i 'video only\|^\[download' ;;
+    *) yt-dlp -F "$toDownload" "$url" | sed '/images/d;/audio\ only/d;/video\ only/d;/^\[youtube/d;/^\[info/d' ;;
 esac
 
 read -rp "$(blueText "\nyour chosen ID : ")" quality
