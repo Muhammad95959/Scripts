@@ -30,6 +30,7 @@ fi
 while true; do
 	focusedClass=$(xprop -id "$(xdotool getwindowfocus)" | awk -F '"' '/WM_CLASS/{print $4}')
 	if [ "$focusedClass" == "Thorium-browser" ]; then
+    xdotool set_window --class "Thorium-translate" "$(xdotool getactivewindow)"
 		i3-msg floating enable && i3-msg resize set 960 720 && i3-msg move position center
 		xdotool key F11
 

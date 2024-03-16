@@ -2,8 +2,6 @@
 
 options="\
 1600 x 900
-1400 x 900
-1280 x 960
 1440 x 810
 1280 x 720
 960 x 600
@@ -18,9 +16,7 @@ chosen=$(echo "$options" | rofi -dmenu -i -theme ~/.config/rofi/oneliner.rasi -p
 
 case "$chosen" in
 "1600 x 900")  i3-msg floating enable && i3-msg resize set 1600 900  && i3-msg move position center ;;
-"1400 x 900")  i3-msg floating enable && i3-msg resize set 1400 900  && i3-msg move position center ;;
 "1440 x 810")  i3-msg floating enable && i3-msg resize set 1440 810  && i3-msg move position center ;;
-"1280 x 960")  i3-msg floating enable && i3-msg resize set 1280 960  && i3-msg move position center ;;
 "1280 x 720")  i3-msg floating enable && i3-msg resize set 1280 720  && i3-msg move position center ;;
 "960 x 600")   i3-msg floating enable && i3-msg resize set 960 600   && i3-msg move position center ;;
 "840 x 525")   i3-msg floating enable && i3-msg resize set 840 525   && i3-msg move position center ;;
