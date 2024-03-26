@@ -17,7 +17,7 @@ readarray chars < "${chars_csv}"
 char_entry=$(
     for char in "${chars[@]}";{
         echo ${char/,/ }
-    }|rofi -dmenu -theme ~/.config/rofi/emoji_dropdown.rasi
+    }|rofi -dmenu -theme ~/.config/rofi/emoji_dropdown.rasi -p "Search:"
 )
 
 # If user cancelled rofi, exit
