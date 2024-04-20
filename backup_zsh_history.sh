@@ -1,3 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-[[ ! -f /mnt/Disk_D/Muhammad/Linux_stuff/Backup/zsh_history/zsh_history_$(date +%Y-%m-%d).bak ]] && cp /home/muhammad/.zhistory /mnt/Disk_D/Muhammad/Linux_stuff/Backup/zsh_history/zsh_history_"$(date +%Y-%m-%d)".bak
+if [ ! -f /mnt/Disk_D/Muhammad/Linux_stuff/Backup/zsh_history/zsh_history_"$(date +%Y-%m-%d)".bak ]; then
+	cp /home/muhammad/.zhistory /mnt/Disk_D/Muhammad/Linux_stuff/Backup/zsh_history/zsh_history_"$(date +%Y-%m-%d)".bak
+  bash ~/Scripts/update_DotFiles_repo.sh
+fi
