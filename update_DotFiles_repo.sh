@@ -14,7 +14,9 @@ cp  -r  "$HOME"/.icons               /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  -r  "$HOME"/.config/Kvantum      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/Thunar       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/alacritty    /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/bat          /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/deadd        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/dk           /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/fontconfig   /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/gtk-2.0      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/gtk-3.0      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
@@ -34,6 +36,7 @@ cp  -r  "$HOME"/.config/qutebrowser  /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  -r  "$HOME"/.config/ranger       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/rofi         /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/vimiv        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/yay          /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/zathura      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/zsh          /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 

@@ -3,13 +3,14 @@
 en_to_ar="https://translate.google.com.eg/?hl=ar&tab=rT1&sl=en&tl=ar&op=translate"
 ar_to_en="https://translate.google.com.eg/?hl=ar&tab=rT1&sl=ar&tl=en&op=translate"
 
-text=$(rofi -dmenu \
-    -p "Translate : " \
-    -theme ~/.config/rofi/oneliner.rasi
+text=$(
+	rofi -dmenu \
+		-p "Translate : " \
+		-theme ~/.config/rofi/oneliner.rasi
 )
 
 if [ -z "$text" ]; then
-    exit 1
+	exit 1
 fi
 
 arabic_count=$(echo "$text" | grep -o -P "\p{Arabic}" | wc -l)

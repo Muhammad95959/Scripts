@@ -11,7 +11,7 @@ embark\
 " | rofi -dmenu -i -theme ~/.config/rofi/zathura_recolor.rasi -p "choose a theme: ")
 
 case "$chosen" in
-  "Mustard on Deep Charcoal 'B'")
+"Mustard on Deep Charcoal 'B'")
 	sed -i "1,/^$/\
 c\-- Recoloring\n\
 set default-bg         \"#ffdb58\"\n\
@@ -84,8 +84,8 @@ set inputbar-fg              \"#CDD6F4\"\n\
 set inputbar-bg              \"#313244\"\n\
 set index-fg                 \"#CDD6F4\"\n\
 set index-bg                 \"#1E1E2E\"\n\
-set index-active-fg          \"#CDD6F4\"\n\
-set index-active-bg          \"#313244\"\n\
+set index-active-fg          \"#313244\"\n\
+set index-active-bg          \"#CDD6F4\"\n\
 set render-loading-bg        \"#1E1E2E\"\n\
 set render-loading-fg        \"#CDD6F4\"\n\
 set highlight-color          \"#575268\"\n\
@@ -117,8 +117,8 @@ set inputbar-fg              \"#CDD6F4\"\n\
 set inputbar-bg              \"#313244\"\n\
 set index-fg                 \"#CDD6F4\"\n\
 set index-bg                 \"#1E1E2E\"\n\
-set index-active-fg          \"#CDD6F4\"\n\
-set index-active-bg          \"#313244\"\n\
+set index-active-fg          \"#313244\"\n\
+set index-active-bg          \"#CDD6F4\"\n\
 set render-loading-bg        \"#1E1E2E\"\n\
 set render-loading-fg        \"#CDD6F4\"\n\
 set highlight-color          \"#575268\"\n\
@@ -159,19 +159,18 @@ set render-loading-fg       \"#CBE3E7\"\n" "$HOME"/.config/zathura/zathurarc
 	;;
 esac
 
-if [ -z "$chosen" ]
-then
-  exit 1
+if [ -z "$chosen" ]; then
+	exit 1
 fi
 
 if [ "$(xdotool getactivewindow getwindowclassname)" == "Zathura" ]; then
-  xdotool type ":"
-  xdotool type "s"
-  xdotool type "o"
-  xdotool type "u"
-  xdotool type "r"
-  xdotool type "c"
-  xdotool type "e"
-  xdotool key Return
-  xdotool key Escape
+	xdotool type ":"
+	xdotool type "s"
+	xdotool type "o"
+	xdotool type "u"
+	xdotool type "r"
+	xdotool type "c"
+	xdotool type "e"
+	xdotool key Return
+	xdotool key Escape
 fi
