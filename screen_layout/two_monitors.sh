@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+
 counter=0
 while true; do
   if xrandr | grep -q "HDMI-1-0 connected"; then
@@ -11,7 +12,7 @@ while true; do
     break
   else
     echo "HDMI-1-0 is disconnected"
-    ((counter++))
+    counter=$((counter + 1))
     sleep 1
     if [ "$counter" -gt 9 ]; then
       break

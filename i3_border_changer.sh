@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 light="#ffffff"
 dark="#24273a"
@@ -30,9 +30,8 @@ Ruddy Pink
 Slate Blue\
 " | rofi -dmenu -i -theme ~/.config/rofi/border_color_chooser.rasi -p "choose a color: ")
 
-function change_border {
-	sed -Ei "/^client.focused.*###/s/^.*###/client.focused          "$1" "$1" "$3" "$2"   "$1"    ###/" ~/.config/i3/config
-	sed -Ei "/xborders --border-rgba/s/--border-rgba ......../--border-rgba "$(echo "$1" | sed "s/#//")"ff/" ~/.config/i3/config
+change_border() {
+	sed -Ei "/^client.focused.*###/s/^.*###/client.focused          $1 $1 $3 $2   $1    ###/" ~/.config/i3/config
 	i3-msg restart
 }
 

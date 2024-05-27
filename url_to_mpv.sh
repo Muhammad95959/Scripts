@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 url=$(xclip -o)
 quality=$(printf "144p\n240p\n360p\n480p\n720p\n1080p" | rofi -dmenu \

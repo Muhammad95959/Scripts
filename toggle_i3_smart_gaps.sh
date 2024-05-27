@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if grep -q '^# hide_edge_borders.*###' ~/.config/i3/config; then
 	sed -Ei '/smart_gaps.*###/s/^/# /' ~/.config/i3/config

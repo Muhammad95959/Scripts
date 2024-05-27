@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # if xprop -id "$(xdotool getactivewindow)" | grep -q "YouTube"; then
 # 	sleep 0.5

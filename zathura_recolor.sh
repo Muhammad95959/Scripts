@@ -1,3 +1,5 @@
+#!/bin/sh
+
 chosen=$(printf "\
 Mustard on Deep Charcoal 'B'
 Mustard on Deep Charcoal
@@ -163,7 +165,7 @@ if [ -z "$chosen" ]; then
 	exit 1
 fi
 
-if [ "$(xdotool getactivewindow getwindowclassname)" == "Zathura" ]; then
+if [ "$(xdotool getactivewindow getwindowclassname)" = "Zathura" ]; then
 	xdotool type ":"
 	xdotool type "s"
 	xdotool type "o"

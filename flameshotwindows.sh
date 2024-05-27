@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 eval "$(xdotool selectwindow getwindowgeometry --shell)"
 REGION="${WIDTH}x${HEIGHT}+${X}+${Y}"
