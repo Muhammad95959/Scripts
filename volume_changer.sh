@@ -34,7 +34,7 @@ toggle_vol_mute() {
 	if pactl list sinks | grep -q "Mute: yes"; then
 		volnoti-show -m
 	else
-		volnoti-show $(($(pactl list sinks | grep -P "Volume: front-left:" | awk '{print $5}' | sed 's/%//') * 100 / MAX_VOL))
+		volnoti-show $(($(pactl list sinks | awk '/Volume: front-left/ {print $5}' | sed 's/%//') * 100 / MAX_VOL))
 	fi
 }
 

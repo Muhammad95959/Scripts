@@ -1,10 +1,10 @@
 #!/bin/sh
 
 MAX_VOL=150
-OLD_VOL=$(($(pactl list sinks | grep '^[[:space:]]Volume:' | awk '{print $5}' | tail -1 | sed 's/%//')*100/MAX_VOL))
+OLD_VOL=$(($(pactl list sinks | awk '/^[[:space:]]Volume:/ {print $5}' | tail -1 | sed 's/%//')*100/MAX_VOL))
 pactl subscribe | grep --line-buffered "sink" |
 while read -r _; do
-	VOL=$(($(pactl list sinks | grep '^[[:space:]]Volume:' | awk '{print $5}' | tail -1 | sed 's/%//')*100/MAX_VOL))
+	VOL=$(($(pactl list sinks | awk '/^[[:space:]]Volume:/ {print $5}' | tail -1 | sed 's/%//')*100/MAX_VOL))
     if [ $VOL != $OLD_VOL ] && [ $VOL != 0 ]; then
       echo $VOL
 		volnoti-show $VOL
