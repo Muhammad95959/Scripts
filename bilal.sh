@@ -16,5 +16,16 @@ elif [ "$1" = "-r" ]; then
 		[ "$(printf "%s" "$time_value" | wc -c)" -lt 2 ] && time_value="0$time_value"
 		time_value="00:$time_value"
 	fi
-	printf "%s until %s\n" "$time_value" "$next_salah" | sed -E 's/Sherook/Shuruk/; s/Dohr/Dhuhr/; s/Ma?ghreb/Maghrib/'
+	current_time_in_minutes="$(($(date +"%H" | sed -E 's/^0?//') * 60 + $(date +"%M" | sed -E 's/^0?//')))"
+	previous_salah_name=$(bilal current | awk '{print $1}' | sed 's/Maghreb/Mghreb/')
+  previous_salah_time=$(bilal all | awk -v p="$previous_salah_name" -F ': ' '{if (p == "Jumua") p = "Dohr"} $1 == p {print $2}')
+	previous_salah_time_in_minutes="$((\
+		$(echo "$previous_salah_time" | sed -E 's/:.*$//; s/^0?//') * 60 + \
+		$(echo "$previous_salah_time" | awk -F ':' '{print $2}' | sed -E 's/^0?//')))"
+	time_passed_since_previous_salah="$((current_time_in_minutes - previous_salah_time_in_minutes))"
+	if [ "$time_passed_since_previous_salah" -le 30 ] && [ "$time_passed_since_previous_salah" -ge 0 ]; then
+		printf "%d min after %s" "$time_passed_since_previous_salah" "$previous_salah_name" | sed -E 's/Sherook/Shuruk/; s/Dohr/Dhuhr/; s/Ma?ghreb/Maghrib/'
+	else
+		printf "%s until %s\n" "$time_value" "$next_salah" | sed -E 's/Sherook/Shuruk/; s/Dohr/Dhuhr/; s/Ma?ghreb/Maghrib/'
+	fi
 fi
