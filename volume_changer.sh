@@ -1,49 +1,37 @@
 #!/bin/sh
 
 vol_inc() {
-	current=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -m1 "" | sed "s/%.*//;s/.*\/.//")
-	if [ "$current" -lt 146 ]; then
-		pactl set-sink-mute @DEFAULT_SINK@ 0
-		pactl set-sink-volume @DEFAULT_SINK@ +5%
-	else
-		pactl set-sink-volume @DEFAULT_SINK@ 150%
-	fi
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
 }
 
 vol_dec() {
-	pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ -5%
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 }
 
 vol_small_inc() {
-	current=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -m1 "" | sed "s/%.*//;s/.*\/.//")
-	if [ "$current" -lt 150 ]; then
-		pactl set-sink-mute @DEFAULT_SINK@ 0
-		pactl set-sink-volume @DEFAULT_SINK@ +1%
-	else
-		pactl set-sink-volume @DEFAULT_SINK@ 150%
-	fi
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 1%+
 }
 
 vol_small_dec() {
-	pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ -1%
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
 }
 
 toggle_vol_mute() {
 	MAX_VOL=150
-	pactl set-sink-mute @DEFAULT_SINK@ toggle
-	if pactl list sinks | grep -q "Mute: yes"; then
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+	if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -iq "muted"; then
 		volnoti-show -m
 	else
-		volnoti-show $(($(pactl list sinks | awk '/Volume: front-left/ {print $5}' | sed 's/%//') * 100 / MAX_VOL))
+		volnoti-show $(($(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}' | sed 's/\.//') * 100 / MAX_VOL))
 	fi
 }
 
 toggle_mic_mute() {
-	amixer set Capture toggle
-	if amixer get Capture | grep -Fq "[off]"; then
+	wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+	if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -iq "muted"; then
 		volnoti-show 0 -s /usr/share/pixmaps/volnoti/mic_mute.svg
 	else
-		volnoti-show "$(amixer get Capture | grep -Po "[0-9]+(?=%)" | tail -1)" -s /usr/share/pixmaps/volnoti/mic.svg
+		volnoti-show "$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $2 * 100}' | sed 's/\.//')" -s /usr/share/pixmaps/volnoti/mic.svg
 	fi
 }
 
