@@ -90,9 +90,9 @@ set index-active-fg          \"#313244\"\n\
 set index-active-bg          \"#CDD6F4\"\n\
 set render-loading-bg        \"#1E1E2E\"\n\
 set render-loading-fg        \"#CDD6F4\"\n\
-set highlight-color          \"#575268\"\n\
-set highlight-fg             \"#F5C2E7\"\n\
-set highlight-active-color   \"#F5C2E7\"\n" "$HOME"/.config/zathura/zathurarc
+set highlight-color          rgba(87,82,104,0.8)\n\
+set highlight-fg             rgba(245,194,231,0.8)\n\
+set highlight-active-color   rgba(245,194,231,0.8)\n" "$HOME"/.config/zathura/zathurarc
 	;;
 "catppuccin")
 	sed -i "1,/^$/\
@@ -123,41 +123,41 @@ set index-active-fg          \"#313244\"\n\
 set index-active-bg          \"#CDD6F4\"\n\
 set render-loading-bg        \"#1E1E2E\"\n\
 set render-loading-fg        \"#CDD6F4\"\n\
-set highlight-color          \"#575268\"\n\
-set highlight-fg             \"#F5C2E7\"\n\
-set highlight-active-color   \"#F5C2E7\"\n" "$HOME"/.config/zathura/zathurarc
+set highlight-color          rgba(87,82,104,0.8)\n\
+set highlight-fg             rgba(245,194,231,0.8)\n\
+set highlight-active-color   rgba(245,194,231,0.8)\n" "$HOME"/.config/zathura/zathurarc
 	;;
 "embark")
 	sed -i "1,/^$/\
 c\-- Recoloring\n\
-set default-bg              \"#1E1C31\"\n\
-set statusbar-bg            \"#1E1C31\"\n\
-set recolor-darkcolor       \"#CBE3E7\"\n\
-set recolor-lightcolor      \"#1E1C31\"\n\
-set notification-error-bg   \"#1E1C31\"\n\
-set notification-error-fg   \"#F48FB1\"\n\
-set notification-warning-bg \"#1E1c31\"\n\
-set notification-warning-fg \"#FFE6B3\"\n\
-set notification-bg         \"#1E1C31\"\n\
-set notification-fg         \"#CBE3E7\"\n\
-set completion-bg           \"#1E1C31\"\n\
-set completion-fg           \"#CBE3E7\"\n\
-set completion-group-bg     \"#A1EFD3\"\n\
-set completion-group-fg     \"#2D2B40\"\n\
-set completion-highlight-bg \"#FFE6B3\"\n\
-set completion-highlight-fg \"#2D2B40\"\n\
-set index-bg                \"#1E1C31\"\n\
-set index-fg                \"#CBE3E7\"\n\
-set index-active-bg         \"#CBE3E7\"\n\
-set index-active-fg         \"#1E1C31\"\n\
-set inputbar-bg             \"#1E1C31\"\n\
-set inputbar-fg             \"#CBE3E7\"\n\
-set statusbar-fg            \"#CBE3E7\"\n\
-set highlight-color         \"#F48FB1\"\n\
-set highlight-active-color  \"#87DFEB\"\n\
-set default-fg              \"#CBE3E7\"\n\
-set render-loading-bg       \"#3E3859\"\n\
-set render-loading-fg       \"#CBE3E7\"\n" "$HOME"/.config/zathura/zathurarc
+set default-bg               \"#1E1C31\"\n\
+set statusbar-bg             \"#1E1C31\"\n\
+set recolor-darkcolor        \"#CBE3E7\"\n\
+set recolor-lightcolor       \"#1E1C31\"\n\
+set notification-error-bg    \"#1E1C31\"\n\
+set notification-error-fg    \"#F48FB1\"\n\
+set notification-warning-bg  \"#1E1c31\"\n\
+set notification-warning-fg  \"#FFE6B3\"\n\
+set notification-bg          \"#1E1C31\"\n\
+set notification-fg          \"#CBE3E7\"\n\
+set completion-bg            \"#1E1C31\"\n\
+set completion-fg            \"#CBE3E7\"\n\
+set completion-group-bg      \"#A1EFD3\"\n\
+set completion-group-fg      \"#2D2B40\"\n\
+set completion-highlight-bg  \"#FFE6B3\"\n\
+set completion-highlight-fg  \"#2D2B40\"\n\
+set index-bg                 \"#1E1C31\"\n\
+set index-fg                 \"#CBE3E7\"\n\
+set index-active-bg          \"#CBE3E7\"\n\
+set index-active-fg          \"#1E1C31\"\n\
+set inputbar-bg              \"#1E1C31\"\n\
+set inputbar-fg              \"#CBE3E7\"\n\
+set statusbar-fg             \"#CBE3E7\"\n\
+set default-fg               \"#CBE3E7\"\n\
+set render-loading-bg        \"#3E3859\"\n\
+set render-loading-fg        \"#CBE3E7\"\n\
+set highlight-color          rgba(244,143,177,0.8)\n\
+set highlight-active-color   rgba(135,223,235,0.8)\n" "$HOME"/.config/zathura/zathurarc
 	;;
 esac
 
