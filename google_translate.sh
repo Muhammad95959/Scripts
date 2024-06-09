@@ -9,9 +9,7 @@ text=$(
 		-theme ~/.config/rofi/oneliner.rasi
 )
 
-if [ -z "$text" ]; then
-	exit 1
-fi
+[ -z "$text" ] && exit 1
 
 arabic_count=$(echo "$text" | grep -o -P "\p{Arabic}" | wc -l)
 english_count=$(echo "$text" | grep -o -P "[A-Za-z]" | wc -l)
