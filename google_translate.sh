@@ -6,10 +6,12 @@ ar_to_en="https://translate.google.com.eg/?hl=ar&tab=rT1&sl=ar&tl=en&op=translat
 text=$(
 	rofi -dmenu \
 		-p "Translate : " \
-		-theme ~/.config/rofi/oneliner.rasi
+		-theme "${XDG_CONFIG_HOME:-~/.config}"/rofi/oneliner.rasi
 )
 
 [ -z "$text" ] && exit 1
+
+export XDG_CONFIG_HOME=
 
 arabic_count=$(echo "$text" | grep -o -P "\p{Arabic}" | wc -l)
 english_count=$(echo "$text" | grep -o -P "[A-Za-z]" | wc -l)

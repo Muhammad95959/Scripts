@@ -7,21 +7,13 @@ options="\
 $(cat "$todolist_path")\
 "
 
-if pgrep -x waybar; then
-	choice=$(echo "$options" | rofi -dmenu -i -p "Todo" -theme-str 'window {y-offset: -20px;}')
-else
-	choice=$(echo "$options" | rofi -dmenu -i -p "Todo")
-fi
+choice=$(echo "$options" | rofi -dmenu -i -p "Todo")
 
 [ -z "$choice" ] && exit 1
 
 case "$choice" in
 "  Add todo item")
-	if pgrep -x waybar; then
-		item=$(rofi -dmenu -i -p "Todo Item : " -theme ~/.config/rofi/oneliner.rasi -theme-str 'window {y-offset: -20px;}')
-	else
-		item=$(rofi -dmenu -i -p "Todo Item : " -theme ~/.config/rofi/oneliner.rasi)
-	fi
+	item=$(rofi -dmenu -i -p "Todo Item : " -theme "${XDG_CONFIG_HOME:-$HOME/.config}"/rofi/oneliner.rasi)
 	[ -n "$item" ] && echo "$item" >>"$todolist_path"
 	;;
 *)
