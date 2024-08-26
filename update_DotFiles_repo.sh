@@ -27,7 +27,6 @@ cp  -r  "$HOME"/.config/gtk-3.0      /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  -r  "$HOME"/.config/gtk-4.0      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/i3           /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/kitty        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  "$HOME"/.config/lf           /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/mpv          /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/nomacs       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/nvim         /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
@@ -41,6 +40,7 @@ cp  -r  "$HOME"/.config/ranger       /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  -r  "$HOME"/.config/rofi         /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/vimiv        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/yay          /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/yazi         /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/zathura      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/zsh          /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 
