@@ -39,6 +39,8 @@ case $pChoice in
 *) ;;
 esac
 
+trap 'trap - INT' INT
+
 printf "%s" "$(blueText "
 download options:- 
 1: all
@@ -55,6 +57,8 @@ case $choice in
 3) yt-dlp -F "$toDownload" "$url" | grep -i 'video only\|^\[download' ;;
 *) yt-dlp -F "$toDownload" "$url" | sed '/images/d;/audio\ only/d;/video\ only/d;/^\[youtube/d;/^\[info/d' ;;
 esac
+
+trap - INT
 
 printf "%s" "$(blueText "\nyour chosen ID : ")"
 read -r quality
