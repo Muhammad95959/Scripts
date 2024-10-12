@@ -43,19 +43,19 @@ trap 'trap - INT' INT
 
 printf "%s" "$(blueText "
 download options:- 
-1: all
+1: all (default)
 2: audio only
 3: video only
-4: full (default)
+4: full
 
 your choice : ")"
 read -r choice
 
 case $choice in
-1) yt-dlp -F "$toDownload" "$url" ;;
-2) yt-dlp -F "$toDownload" "$url" | grep -i 'audio only\|^\[download' ;;
-3) yt-dlp -F "$toDownload" "$url" | grep -i 'video only\|^\[download' ;;
-*) yt-dlp -F "$toDownload" "$url" | sed '/images/d;/audio\ only/d;/video\ only/d;/^\[youtube/d;/^\[info/d' ;;
+2) yt-dlp -F "$toDownload" "$url" | sed '/images/d;/audio\ only/d;/video\ only/d;/^\[youtube/d;/^\[info/d' ;;
+3) yt-dlp -F "$toDownload" "$url" | grep -i 'audio only\|^\[download' ;;
+4) yt-dlp -F "$toDownload" "$url" | grep -i 'video only\|^\[download' ;;
+*) yt-dlp -F "$toDownload" "$url" ;;
 esac
 
 trap - INT
