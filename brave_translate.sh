@@ -43,7 +43,7 @@ while true; do
 	focusedClass=$(xprop -id "$(xdotool getwindowfocus)" | awk -F '"' '/WM_CLASS/{print $4}')
 	if [ "$focusedClass" = "$browser_class" ]; then
 		xdotool set_window --class "Brave-translate" "$(xdotool getactivewindow)"
-		i3-msg floating enable && i3-msg resize set 960 720 && i3-msg move position center
+		i3-msg floating enable, resize set 960 720, move position center
 		xdotool key F11
 
 		# Check if the window is in fullscreen_mode
