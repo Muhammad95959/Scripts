@@ -3,7 +3,7 @@
 number=$(
 	rofi -dmenu \
 		-p "The number of UVR instances to open : " \
-		-theme ~/.config/rofi/oneliner.rasi
+		-theme "${XDG_CONFIG_HOME:-$HOME/.config}"/rofi/oneliner.rasi
 )
 
 if ! expr "$number" : '^[1-9][0-9]*$'; then
