@@ -1,21 +1,21 @@
 #!/bin/sh
 
 blue_jeans="#61AFEF"
-blue_jeans_companion="#61DFFF"
+blue_jeans_companion="#51AFEF"
 deep_champagne="#EED49F"
-deep_champagne_companion="#EED4DF"
+deep_champagne_companion="#DED49F"
 lavender_blue="#CDD6F4"
-lavender_blue_companion="#9AA3C5"
+lavender_blue_companion="#BDD6F4"
 light_salmon="#F5A97F"
-light_salmon_companion="#F5A9BF"
+light_salmon_companion="#E5A97F"
 middle_blue_green="#8BD5CA"
-middle_blue_green_companion="#8ED5FA"
+middle_blue_green_companion="#7BD5CA"
 pale_violet="#C6A0F6"
-pale_violet_compaion="#C640F6"
+pale_violet_compaion="#B6A0F6"
 ruddy_pink="#ED8796"
-ruddy_pink_companion="#ED87D6"
+ruddy_pink_companion="#DD8796"
 slate_blue="#7B58DC"
-slate_blue_companion="#9B58DC"
+slate_blue_companion="#6B58DC"
 
 chosen=$(printf "\
 Blue Jeans
@@ -31,7 +31,7 @@ Slate Blue\
 change_border() {
   c1=$(echo "$1" | sed 's/#//')
   c2=$(echo "$2" | sed 's/#//')
-  sed -Ei "/col\.active_border/ s/(col\.active_border =).*/\1 rgba(${c1}ee) rgba(${c2}ee) 45deg/" ~/.config/hypr/hyprland.conf
+  sed -Ei "/col\.active_border/ s/(col\.active_border =).*/\1 rgba(${c1}EE) rgba(${c2}EE) 45deg/" ~/.config/hypr/hyprland.conf
 }
 
 case "$chosen" in
