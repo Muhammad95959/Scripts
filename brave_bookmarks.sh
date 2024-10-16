@@ -25,11 +25,7 @@ jq -r '
     end' "$BOOKMARKS_FILE" >"$urls_file"
 
 # Show bookmark names in rofi and capture the selected line
-if pgrep waybar; then
-  selected_name=$(rofi -dmenu -i -p "Bookmark:" -theme "$HOME/.config/rofi/launcher.rasi" <"$names_file")
-else
-  selected_name=$(rofi -dmenu -i -p "Bookmark:" -theme "$HOME/.config/rofi/oneliner.rasi" <"$names_file")
-fi
+selected_name=$(rofi -dmenu -i -p "Bookmark:" -theme "${XDG_CONFIG_HOME:-~/.config}/rofi/oneliner.rasi" <"$names_file")
 
 # Get the corresponding URL based on the selected name
 selected_url=$(awk -v name="$selected_name" '
