@@ -31,7 +31,6 @@ final_wallpaper=$(echo $selected_wallpaper | sed "s/ (current)//")
 
 # If a valid wallpaper was selected, change wallpaper and colorscheme
 if [[ -n "$final_wallpaper" ]]; then
-  swww img "/mnt/Disk_D/Backgrounds/$final_wallpaper" --transition-type center --transition-fps 60 --transition-step 100
+  swww img "/mnt/Disk_D/Backgrounds/$final_wallpaper" --transition-type fade --transition-fps 60 --transition-step 100
   ln -sf "/mnt/Disk_D/Backgrounds/$final_wallpaper" ~/.cache/current-wallpaper && # creates a symlink to the current wallpaper
 fi
-

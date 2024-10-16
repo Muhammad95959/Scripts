@@ -39,6 +39,7 @@ selected_url=$(awk -v name="$selected_name" '
 
 # If a URL was selected, open it in Brave
 if [ -n "$selected_url" ]; then
+  export XDG_CONFIG_HOME=
   brave --test-type "$selected_url"
 fi
 
