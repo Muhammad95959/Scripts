@@ -15,7 +15,7 @@ embark\
 case "$chosen" in
 "Mustard on Deep Charcoal 'B'")
   sed -i "1,/^$/\
-c\-- Recoloring\n\
+c\\
 set default-bg         \"#ffdb58\"\n\
 set statusbar-bg       \"#000000\"\n\
 set recolor-darkcolor  \"#ffdb58\"\n\
@@ -23,7 +23,7 @@ set recolor-lightcolor \"#111111\"\n" "$HOME"/.config/zathura/zathurarc
   ;;
 "Mustard on Deep Charcoal")
   sed -i "1,/^$/\
-c\-- Recoloring\n\
+c\\
 set default-bg         \"#111111\"\n\
 set statusbar-bg       \"#000000\"\n\
 set recolor-darkcolor  \"#ffdb58\"\n\
@@ -31,7 +31,7 @@ set recolor-lightcolor \"#111111\"\n" "$HOME"/.config/zathura/zathurarc
   ;;
 "Canary Yellow on Black")
   sed -i "1,/^$/\
-c\-- Recoloring\n\
+c\\
 set default-bg         \"#000000\"\n\
 set statusbar-bg       \"#141414\"\n\
 set recolor-darkcolor  \"#ffee00\"\n\
@@ -39,7 +39,7 @@ set recolor-lightcolor \"#000000\"\n" "$HOME"/.config/zathura/zathurarc
   ;;
 "White on Black")
   sed -i "1,/^$/\
-c\-- Recoloring\n\
+c\\
 set default-bg         \"#000000\"\n\
 set statusbar-bg       \"#141414\"\n\
 set recolor-darkcolor  \"#ffffff\"\n\
@@ -47,7 +47,7 @@ set recolor-lightcolor \"#000000\"\n" "$HOME"/.config/zathura/zathurarc
   ;;
 "Black on White")
   sed -i "1,/^$/\
-c\-- Recoloring\n\
+c\\
 set default-bg         \"#ffffff\"\n\
 set statusbar-bg       \"#141414\"\n\
 set recolor-darkcolor  \"#000000\"\n\
@@ -55,7 +55,7 @@ set recolor-lightcolor \"#ffffff\"\n" "$HOME"/.config/zathura/zathurarc
   ;;
 "Black on Beige")
   sed -i "1,/^$/\
-c\-- Recoloring\n\
+c\\
 set default-bg         \"#000000\"\n\
 set statusbar-bg       \"#141414\"\n\
 set recolor-darkcolor  \"#000000\"\n\
@@ -63,7 +63,7 @@ set recolor-lightcolor \"#ffe1ba\"\n" "$HOME"/.config/zathura/zathurarc
   ;;
 "catppuccin 'B'")
   sed -i "1,/^$/\
-c\-- Recoloring\n\
+c\\
 set default-bg               \"#CDD6F4\"\n\
 set statusbar-bg             \"#313244\"\n\
 set recolor-lightcolor       \"#1E1E2E\"\n\
@@ -96,7 +96,7 @@ set highlight-active-color   rgba(245,194,231,0.8)\n" "$HOME"/.config/zathura/za
   ;;
 "catppuccin")
   sed -i "1,/^$/\
-c\-- Recoloring\n\
+c\\
 set default-bg               \"#1E1E2E\"\n\
 set statusbar-bg             \"#313244\"\n\
 set recolor-lightcolor       \"#1E1E2E\"\n\
@@ -129,7 +129,7 @@ set highlight-active-color   rgba(245,194,231,0.8)\n" "$HOME"/.config/zathura/za
   ;;
 "embark")
   sed -i "1,/^$/\
-c\-- Recoloring\n\
+c\\
 set default-bg               \"#1E1C31\"\n\
 set statusbar-bg             \"#1E1C31\"\n\
 set recolor-darkcolor        \"#CBE3E7\"\n\
