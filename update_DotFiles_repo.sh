@@ -34,6 +34,7 @@ cp  -r  "$HOME"/.config/kitty        /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  -r  "$HOME"/.config/mpv          /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/nomacs       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/nvim         /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/nwg-drawer   /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/octave       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/picom        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/polybar      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
@@ -45,6 +46,7 @@ cp  -r  "$HOME"/.config/rofi         /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  -r  "$HOME"/.config/vimiv        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/waybar       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/waypaper     /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/wlogout      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/yay          /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/yazi         /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/zathura      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/

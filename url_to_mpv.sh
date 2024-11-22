@@ -1,6 +1,11 @@
 #!/bin/sh
 
-url=$(xclip -o)
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+  url=$(wl-paste)
+else
+  url=$(xclip -o)
+fi
+
 quality=$(printf "144p\n240p\n360p\n480p\n720p\n1080p" | rofi -dmenu -mesg "$url" -theme ~/.config/rofi/url_to_mpv.rasi)
 
 case $quality in
