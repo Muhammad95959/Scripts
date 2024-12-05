@@ -4,7 +4,7 @@ browser_class="Brave-browser"
 chromium_based_browser="brave"
 brave_focused=false
 
-if [ "$(xdotool getactivewindow getwindowclassname)" = "$browser_class" ]; then
+if [ "$(hyprctl -j clients | jq -r '.[] | select(.focusHistoryID == 0) | .class')" = "$browser_class" ] || [ "$(xdotool getactivewindow getwindowclassname)" = "$browser_class" ]; then
   brave_focused=true
 fi
 

@@ -53,6 +53,7 @@ cp  -r  "$HOME"/.config/zathura      /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  -r  "$HOME"/.config/zsh          /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 
 cp  -r  "$HOME"/.config/QtProject.conf  /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/greenclip.toml  /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/okularpartrc    /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/okularrc        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 
