@@ -53,6 +53,7 @@ cp  -r  "$HOME"/.config/zathura      /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  -r  "$HOME"/.config/zsh          /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 
 cp  -r  "$HOME"/.config/QtProject.conf  /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/completion.mp3  /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/greenclip.toml  /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/okularpartrc    /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/okularrc        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
@@ -60,12 +61,8 @@ cp  -r  "$HOME"/.config/okularrc        /mnt/Disk_D/Muhammad/Repositories/DotFil
 cp  -r /usr/share/pixmaps/volnoti                    /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
 cp  /usr/lib/systemd/system/kanata.service           /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
 cp  /etc/NetworkManager/conf.d/20-connectivity.conf  /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
-cp  /etc/lightdm/background.jpg                      /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
-cp  /etc/interception-vimproved/config.yaml          /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
 cp  /etc/environment                                 /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
-cp  /etc/interception/udevmon.d/my-udevmon.yaml      /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
 cp  /etc/modprobe.d/nobeep.conf                      /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
-cp  /etc/lightdm/slick-greeter.conf                  /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
 cp  /etc/samba/smb.conf                              /mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root_files/
 
 notify-send -t 3000 "updated DotFiles repo"
