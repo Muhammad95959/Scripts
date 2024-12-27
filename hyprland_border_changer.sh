@@ -26,7 +26,7 @@ Middle Blue Green
 Pale Violet
 Ruddy Pink
 Slate Blue\
-" | rofi -dmenu -i -theme ~/.config/rofi/border_color_chooser.rasi -p "choose a color: ")
+" | rofi -dmenu -no-custom -i -theme ~/.config/rofi/border_color_chooser.rasi -p "choose a color: ")
 
 change_border() {
   c1=$(echo "$1" | sed 's/#//')

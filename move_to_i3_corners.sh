@@ -4,7 +4,7 @@
 screen_width=1920
 screen_height=1080
 
-[ -z "$1" ] && set -- "$(printf "(1) topleft\n(2) topright\n(3) bottomleft\n(4) bottomright" | rofi -dmenu -i -theme ~/.config/rofi/oneliner.rasi -p "corner:" | awk '{print $2}')"
+[ -z "$1" ] && set -- "$(printf "(1) topleft\n(2) topright\n(3) bottomleft\n(4) bottomright" | rofi -dmenu -no-custom -i -theme ~/.config/rofi/oneliner.rasi -p "corner:" | awk '{print $2}')"
 
 # Get the window ID of the currently focused window
 window_id=$(xdotool getwindowfocus)

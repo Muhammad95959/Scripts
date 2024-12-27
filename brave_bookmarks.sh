@@ -25,7 +25,7 @@ jq -r '
     end' "$BOOKMARKS_FILE" >"$urls_file"
 
 # Show bookmark names in rofi and capture the selected line
-selected_name=$(rofi -dmenu -i -p "Bookmark:" -theme "${XDG_CONFIG_HOME:-~/.config}/rofi/oneliner.rasi" <"$names_file")
+selected_name=$(rofi -dmenu -no-custom -i -p "Bookmark:" -theme "${XDG_CONFIG_HOME:-~/.config}/rofi/oneliner.rasi" <"$names_file")
 
 # Get the corresponding URL based on the selected name
 selected_url=$(awk -v name="$selected_name" '

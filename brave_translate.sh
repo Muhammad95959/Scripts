@@ -66,7 +66,7 @@ while true; do
       # Check if the window is in fullscreen_mode
       while true; do
         is_fullscreen=$(hyprctl -j clients | jq -r '.[] | select(.focusHistoryID == 0) | .fullscreen')
-        [ "$is_fullscreen" = "2" ] && hyprctl dispatch fullscreen && hyprctl setprop active alpha 0.75 && break
+        [ "$is_fullscreen" = "2" ] && hyprctl dispatch fullscreen && hyprctl dispatch setprop active alpha 0.75 && break
         sleep 0.1
       done
 

@@ -28,7 +28,7 @@ Middle Blue Green
 Pale Violet
 Ruddy Pink
 Slate Blue\
-" | rofi -dmenu -i -theme ~/.config/rofi/border_color_chooser.rasi -p "choose a color: ")
+" | rofi -dmenu -no-custom -i -theme ~/.config/rofi/border_color_chooser.rasi -p "choose a color: ")
 
 change_border() {
 	sed -Ei "/^client.focused.*###/s/^.*###/client.focused          $1 $1 $3 $2   $1    ###/" ~/.config/i3/config

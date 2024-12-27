@@ -7,7 +7,7 @@ options="\
 $(cat "$todolist_path")\
 "
 
-choice=$(echo "$options" | rofi -dmenu -i -p "Todo")
+choice=$(echo "$options" | rofi -dmenu -no-custom -i -p "Todo")
 
 [ -z "$choice" ] && exit 1
 

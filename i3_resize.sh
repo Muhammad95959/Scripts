@@ -12,5 +12,5 @@ options="\
 (l) 432 x 243
 (;) 320 x 180"
 
-size=$(echo "$options" | rofi -dmenu -i -theme ~/.config/rofi/oneliner.rasi -p "choose the dimentions: " | awk '{print $2 " " $4}')
+size=$(echo "$options" | rofi -dmenu -no-custom -i -theme ~/.config/rofi/oneliner.rasi -p "choose the dimentions: " | awk '{print $2 " " $4}')
 test -z "$size" || i3-msg floating enable, resize set "$size", move position center

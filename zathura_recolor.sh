@@ -10,7 +10,7 @@ Black on Beige
 catppuccin 'B'
 catppuccin
 embark\
-" | rofi -dmenu -i -theme ~/.config/rofi/zathura_recolor.rasi -p "choose a theme: ")
+" | rofi -dmenu -no-custom -i -theme ~/.config/rofi/zathura_recolor.rasi -p "choose a theme: ")
 
 case "$chosen" in
 "Mustard on Deep Charcoal 'B'")
