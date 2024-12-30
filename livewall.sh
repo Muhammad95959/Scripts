@@ -3,7 +3,7 @@
 if [ "$1" = "-f" ]; then
   if pgrep -x mpvpaper >/dev/null; then
     killall mpvpaper livewall_auto_pause.sh
-    setsid /usr/bin/waypaper --restore >/dev/null 2>&1 &
+    setsid swww-daemon >/dev/null 2>&1 &
   else
     pgrep -x swww-daemon >/dev/null && killall swww-daemon
     /usr/bin/mpvpaper eDP-1 -fo "input-ipc-server=/tmp/mpv-socket no-audio loop no-config" "/mnt/Disk_D/Backgrounds/Live/active"
@@ -16,7 +16,7 @@ change_wallpaper() {
   current_state=$(cat /sys/class/power_supply/*/online)
   if [ "$current_state" = 0 ]; then
     pgrep -x mpvpaper >/dev/null && killall mpvpaper livewall_auto_pause.sh
-    setsid /usr/bin/waypaper --restore >/dev/null 2>&1 &
+    setsid swww-daemon >/dev/null 2>&1 &
   elif [ "$current_state" = 1 ]; then
     pgrep -x swww-daemon >/dev/null && killall swww-daemon
     /usr/bin/mpvpaper eDP-1 -fo "input-ipc-server=/tmp/mpv-socket no-audio loop no-config" "/mnt/Disk_D/Backgrounds/Live/active"
