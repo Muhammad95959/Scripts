@@ -15,7 +15,7 @@ pale_violet_compaion="#AD73F2"
 ruddy_pink="#ED8796"
 ruddy_pink_companion="#EA7183"
 slate_blue="#7B58DC"
-slate_blue_companion="#592ED4"
+slate_blue_companion="#6A43D8"
 
 chosen=$(printf "\
 Blue Jeans
