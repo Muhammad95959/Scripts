@@ -1,7 +1,6 @@
 #!/bin/sh
 
 cp  "$HOME"/.Xresources   /mnt/Disk_D/Muhammad/Repositories/DotFiles/
-cp  "$HOME"/.gtkrc-2.0    /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  "$HOME"/.hidden       /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  "$HOME"/.ideavimrc    /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  "$HOME"/.inputrc      /mnt/Disk_D/Muhammad/Repositories/DotFiles/
