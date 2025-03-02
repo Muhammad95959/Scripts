@@ -1,9 +1,7 @@
 #!/bin/sh
 
-cp  "$HOME"/.Xresources   /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  "$HOME"/.hidden       /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  "$HOME"/.ideavimrc    /mnt/Disk_D/Muhammad/Repositories/DotFiles/
-cp  "$HOME"/.inputrc      /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  "$HOME"/.p10k.zsh     /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  "$HOME"/.xinitrc      /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  "$HOME"/.xprofile     /mnt/Disk_D/Muhammad/Repositories/DotFiles/
@@ -23,6 +21,7 @@ cp  -r  "$HOME"/.config/dk           /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  -r  "$HOME"/.config/fastfetch    /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/flameshot    /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/fontconfig   /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/ghostty      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/gtk-2.0      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/gtk-3.0      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/gtk-4.0      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
@@ -31,7 +30,6 @@ cp  -r  "$HOME"/.config/i3           /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  -r  "$HOME"/.config/kanata       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/kitty        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/mpv          /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  "$HOME"/.config/nomacs       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/nvim         /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/nwg-drawer   /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/octave       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
@@ -41,11 +39,13 @@ cp  -r  "$HOME"/.config/qt5ct        /mnt/Disk_D/Muhammad/Repositories/DotFiles/
 cp  -r  "$HOME"/.config/qt6ct        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/qutebrowser  /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/ranger       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/readline     /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/rofi         /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/swaync       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
+cp  -r  "$HOME"/.config/tmux         /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/ulauncher    /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/vimiv        /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/waybar       /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
-cp  -r  "$HOME"/.config/waypaper     /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/wlogout      /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/yay          /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
 cp  -r  "$HOME"/.config/yazi         /mnt/Disk_D/Muhammad/Repositories/DotFiles/.config/
