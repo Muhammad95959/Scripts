@@ -1,12 +1,7 @@
 #!/bin/sh
 
-browser_class="Brave-browser"
+browser_class="translate.google.com.eg"
 chromium_based_browser="brave"
-brave_focused=false
-
-if [ "$(hyprctl -j clients | jq -r '.[] | select(.focusHistoryID == 0) | .class')" = "$browser_class" ] || [ "$(xdotool getactivewindow getwindowclassname)" = "$browser_class" ]; then
-  brave_focused=true
-fi
 
 en_to_ar="https://translate.google.com.eg/?hl=ar&tab=rT1&sl=en&tl=ar&op=translate"
 ar_to_en="https://translate.google.com.eg/?hl=ar&tab=rT1&sl=ar&tl=en&op=translate"
@@ -24,53 +19,43 @@ export XDG_CONFIG_HOME=
 arabic_count=$(echo "$text" | grep -o -P "\p{Arabic}" | wc -l)
 english_count=$(echo "$text" | grep -o -P "[A-Za-z]" | wc -l)
 
-if [ $brave_focused = true ]; then
-  if [ "$arabic_count" -gt "$english_count" ]; then
-    $chromium_based_browser "$ar_to_en&text=$text" --test-type >/dev/null 2>&1 &
-  else
-    $chromium_based_browser "$en_to_ar&text=$text" --test-type >/dev/null 2>&1 &
-  fi
-  exit 0
-fi
-
 if [ "$arabic_count" -gt "$english_count" ]; then
-  nohup $chromium_based_browser "$ar_to_en&text=$text" --test-type --new-window >/dev/null 2>&1 &
+  urlencode() {
+    _str="$1"
+    _str_len=${#_str}
+    _pos=0
+    while [ "$_pos" -lt "$_str_len" ]; do
+      _c=$(printf '%s' "$_str" | cut -c "$((_pos + 1))")
+      case "$_c" in
+      [a-zA-Z0-9.~_-]) printf '%s' "$_c" ;;
+      *) printf '%%%02X' "'$_c" ;;
+      esac
+      _pos=$((_pos + 1))
+    done
+  }
+  encoded_text=$(urlencode "$text")
+  nohup $chromium_based_browser "--app=$ar_to_en&text=$encoded_text" --test-type >/dev/null 2>&1 &
 else
-  nohup $chromium_based_browser "$en_to_ar&text=$text" --test-type --new-window >/dev/null 2>&1 &
+  nohup $chromium_based_browser "--app=$en_to_ar&text=$text" --test-type >/dev/null 2>&1 &
 fi
 
 while true; do
   if pgrep -x i3; then
-    focusedClass=$(xprop -id "$(xdotool getwindowfocus)" | awk -F '"' '/WM_CLASS/{print $4}')
+    focusedClass=$(xprop -id "$(xdotool getwindowfocus)" | awk -F '"' '/WM_CLASS/{print $2}')
     if [ "$focusedClass" = "$browser_class" ]; then
-      xdotool set_window --class "Brave-translate" "$(xdotool getactivewindow)"
-      i3-msg floating enable, resize set 960 720, move position center
-      xdotool key F11
-
-      # Check if the window is in fullscreen_mode
-      while true; do
-        is_fullscreen=$(i3-msg -t get_tree | jq '.. | select(.focused?).fullscreen_mode')
-        [ "$is_fullscreen" = "1" ] && xdotool key super+f && picom-trans -c 75 && break
-        sleep 0.1
-      done
-
+      # i3-msg floating enable, resize set 960 720, move position center
+      i3-msg floating enable, resize set 740 960, move position center
+      picom-trans -c 75
       break
     fi
     sleep 0.1
   elif pgrep -x Hyprland; then
-    focusedClass=$(hyprctl -j clients | jq -r '.[] | select(.focusHistoryID == 0) | .class')
+    focusedClass=$(hyprctl -j clients | jq -r '.[] | select(.focusHistoryID == 0) | .initialTitle' | sed 's/_\/$//')
     if [ "$focusedClass" = "$browser_class" ]; then
-      hyprctl --batch "dispatch setfloating; dispatch resizeactive exact 960 720; dispatch centerwindow"
-      ydotool key 87:1 87:0
-
-      # Check if the window is in fullscreen_mode
-      while true; do
-        is_fullscreen=$(hyprctl -j clients | jq -r '.[] | select(.focusHistoryID == 0) | .fullscreen')
-        [ "$is_fullscreen" = "2" ] && hyprctl dispatch fullscreen && hyprctl dispatch setprop active alpha 0.75 && break
-        sleep 0.1
-      done
-
+      # hyprctl --batch "dispatch setfloating; dispatch resizeactive exact 960 720; dispatch centerwindow; dispatch setprop active alpha 0.75"
+      hyprctl --batch "dispatch setfloating; dispatch resizeactive exact 740 960; dispatch centerwindow; dispatch setprop active alpha 0.75"
       break
     fi
+    sleep 0.1
   fi
 done

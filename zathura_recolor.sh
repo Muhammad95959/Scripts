@@ -175,8 +175,7 @@ if [ "$(xdotool getactivewindow getwindowclassname)" = "Zathura" ]; then
   xdotool type "e"
   xdotool key Return
   xdotool key Escape
+  xdotool key ctrl+r
 elif [ "$(hyprctl -j clients | jq -r '.[] | select(.focusHistoryID == 0) | .class')" = "org.pwmt.zathura" ]; then
-  ydotool type ":source"
-  ydotool key 28:1 28:0
-  ydotool key 1:1 1:0
+  wtype ":source" -k return -k escape -s 25 -M ctrl r
 fi
