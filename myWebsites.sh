@@ -2,6 +2,7 @@
 
 brave --test-type "https://muhammad95959.github.io/Dorar-Quiz" &
 brave --test-type "https://muhammad95959.github.io/Typing-Speed-Test" &
+brave --test-type "https://muhammad95959.github.io/Sliding-Puzzle" &
 brave --test-type "https://muhammad95959.github.io/Al-Aqsa-Enigma" &
 brave --test-type "https://muhammad95959.github.io/Memory-Blocks" &
 brave --test-type "https://muhammad95959.github.io/Guess-The-Word" &
