@@ -19,7 +19,7 @@ c\\
 set default-bg         \"#ffdb58\"\n\
 set statusbar-bg       \"#000000\"\n\
 set recolor-darkcolor  \"#ffdb58\"\n\
-set recolor-lightcolor \"#111111\"\n" "$HOME"/.config/zathura/zathurarc
+set recolor-lightcolor \"#111111\"\n" "$HOME"/DotFiles/.config/zathura/zathurarc
   ;;
 "Mustard on Deep Charcoal")
   sed -i "1,/^$/\
@@ -27,7 +27,7 @@ c\\
 set default-bg         \"#111111\"\n\
 set statusbar-bg       \"#000000\"\n\
 set recolor-darkcolor  \"#ffdb58\"\n\
-set recolor-lightcolor \"#111111\"\n" "$HOME"/.config/zathura/zathurarc
+set recolor-lightcolor \"#111111\"\n" "$HOME"/DotFiles/.config/zathura/zathurarc
   ;;
 "Canary Yellow on Black")
   sed -i "1,/^$/\
@@ -35,7 +35,7 @@ c\\
 set default-bg         \"#000000\"\n\
 set statusbar-bg       \"#141414\"\n\
 set recolor-darkcolor  \"#ffee00\"\n\
-set recolor-lightcolor \"#000000\"\n" "$HOME"/.config/zathura/zathurarc
+set recolor-lightcolor \"#000000\"\n" "$HOME"/DotFiles/.config/zathura/zathurarc
   ;;
 "White on Black")
   sed -i "1,/^$/\
@@ -43,7 +43,7 @@ c\\
 set default-bg         \"#000000\"\n\
 set statusbar-bg       \"#141414\"\n\
 set recolor-darkcolor  \"#ffffff\"\n\
-set recolor-lightcolor \"#000000\"\n" "$HOME"/.config/zathura/zathurarc
+set recolor-lightcolor \"#000000\"\n" "$HOME"/DotFiles/.config/zathura/zathurarc
   ;;
 "Black on White")
   sed -i "1,/^$/\
@@ -51,7 +51,7 @@ c\\
 set default-bg         \"#ffffff\"\n\
 set statusbar-bg       \"#141414\"\n\
 set recolor-darkcolor  \"#000000\"\n\
-set recolor-lightcolor \"#ffffff\"\n" "$HOME"/.config/zathura/zathurarc
+set recolor-lightcolor \"#ffffff\"\n" "$HOME"/DotFiles/.config/zathura/zathurarc
   ;;
 "Black on Beige")
   sed -i "1,/^$/\
@@ -59,7 +59,7 @@ c\\
 set default-bg         \"#000000\"\n\
 set statusbar-bg       \"#141414\"\n\
 set recolor-darkcolor  \"#000000\"\n\
-set recolor-lightcolor \"#ffe1ba\"\n" "$HOME"/.config/zathura/zathurarc
+set recolor-lightcolor \"#ffe1ba\"\n" "$HOME"/DotFiles/.config/zathura/zathurarc
   ;;
 "catppuccin 'B'")
   sed -i "1,/^$/\
@@ -92,7 +92,7 @@ set render-loading-bg        \"#1E1E2E\"\n\
 set render-loading-fg        \"#CDD6F4\"\n\
 set highlight-color          rgba(87,82,104,0.8)\n\
 set highlight-fg             rgba(245,194,231,0.8)\n\
-set highlight-active-color   rgba(245,194,231,0.8)\n" "$HOME"/.config/zathura/zathurarc
+set highlight-active-color   rgba(245,194,231,0.8)\n" "$HOME"/DotFiles/.config/zathura/zathurarc
   ;;
 "catppuccin")
   sed -i "1,/^$/\
@@ -125,7 +125,7 @@ set render-loading-bg        \"#1E1E2E\"\n\
 set render-loading-fg        \"#CDD6F4\"\n\
 set highlight-color          rgba(87,82,104,0.8)\n\
 set highlight-fg             rgba(245,194,231,0.8)\n\
-set highlight-active-color   rgba(245,194,231,0.8)\n" "$HOME"/.config/zathura/zathurarc
+set highlight-active-color   rgba(245,194,231,0.8)\n" "$HOME"/DotFiles/.config/zathura/zathurarc
   ;;
 "embark")
   sed -i "1,/^$/\
@@ -157,7 +157,7 @@ set default-fg               \"#CBE3E7\"\n\
 set render-loading-bg        \"#3E3859\"\n\
 set render-loading-fg        \"#CBE3E7\"\n\
 set highlight-color          rgba(244,143,177,0.8)\n\
-set highlight-active-color   rgba(135,223,235,0.8)\n" "$HOME"/.config/zathura/zathurarc
+set highlight-active-color   rgba(135,223,235,0.8)\n" "$HOME"/DotFiles/.config/zathura/zathurarc
   ;;
 esac
 
@@ -165,6 +165,7 @@ if [ -z "$chosen" ]; then
   exit 1
 fi
 
+sleep 0.3
 if [ "$(xdotool getactivewindow getwindowclassname)" = "Zathura" ]; then
   xdotool type ":"
   xdotool type "s"
