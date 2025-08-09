@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ "$1" = "-a" ]; then
-  curl -s 'https://www.dar-alifta.org/ar/services/details/12/التاريخ-الهجري' | pup '.date text{}' | sed 's/^ *//; s/ *$//' 2>/dev/null
+  curl -s 'http://di107.dar-alifta.org/api/HijriDate?langID=1' | iconv -f UTF-16 -t UTF-8 | sed 's/"//' | sed 's/"/\r/' 2>/dev/null
   bilal all | sed -E 's/Sherook/Shuruk/; s/Dohr/Dhuhr/; s/Ma?ghreb/Maghrib/'
 elif [ "$1" = "-r" ]; then
   next_salah=$(bilal next | awk '{print $1}')
