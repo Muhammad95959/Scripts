@@ -17,7 +17,8 @@ if [ -n "$address" ]; then
   windowExists=$(hyprctl clients -j | jq -e --arg addr "$address" 'map(select(.address == $addr)) | length > 0')
   if [ "$windowExists" = "true" ]; then
     echo "scratchpad already exists."
-    [ "$currentAddress" = "$address" ] && scratchpad && exit
+    workspaceWindowsCount=$(hyprctl activeworkspace -j | jq '.windows')
+    [ "$currentAddress" = "$address" ] && [ "$workspaceWindowsCount" != "0" ] && scratchpad && exit
     workspace=$(hyprctl activeworkspace -j | jq -r '.id')
     hyprctl dispatch movetoworkspacesilent "$workspace,address:$address"
     hyprctl dispatch focuswindow address:"$address"
