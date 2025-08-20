@@ -33,8 +33,8 @@ elif [ "$1" = "-r" ]; then
     $(echo "$previous_salah_time" | awk -F ':' '{print $2}' | sed -E 's/^0?//')))"
   time_passed_since_previous_salah="$((current_time_in_minutes - previous_salah_time_in_minutes))"
   if [ "$time_passed_since_previous_salah" -le 30 ] && [ "$time_passed_since_previous_salah" -ge 0 ]; then
-    printf "%d min after %s" "$time_passed_since_previous_salah" "$previous_salah_name" | sed -E 's/Sherook/Shuruk/; s/Dohr/Dhuhr/; s/Ma?ghreb/Maghrib/'
+    echo "$time_passed_since_previous_salah min after $previous_salah_name" | sed -E 's/Sherook/Shuruk/; s/Dohr/Dhuhr/; s/Ma?ghreb/Maghrib/'
   else
-    printf "%s until %s\n" "$time_value" "$next_salah" | sed -E 's/Sherook/Shuruk/; s/Dohr/Dhuhr/; s/Ma?ghreb/Maghrib/'
+    echo "$time_value until $next_salah" | sed -E 's/Sherook/Shuruk/; s/Dohr/Dhuhr/; s/Ma?ghreb/Maghrib/'
   fi
 fi
