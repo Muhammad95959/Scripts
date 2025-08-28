@@ -31,7 +31,7 @@ Slate Blue\
 change_border() {
   c1=$(echo "$1" | sed 's/#//')
   c2=$(echo "$2" | sed 's/#//')
-  sed -Ei "/col\.active_border/ s/(col\.active_border =).*/\1 rgba(${c1}EE) rgba(${c2}EE) 45deg/" ~/.config/hypr/hyprland.conf
+  sed -Ei "/col\.active_border/ s/(col\.active_border =).*/\1 rgba(${c1}EE) rgba(${c2}EE) 45deg/" ~/DotFiles/.config/hypr/hyprland.conf
 }
 
 case "$chosen" in
