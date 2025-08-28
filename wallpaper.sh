@@ -22,3 +22,4 @@ elif [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 fi
 
 ln -fs "$selected_wallpaper_path" "$HOME/.cache/${XDG_SESSION_TYPE}wall"
+magick "$HOME/.cache/${XDG_SESSION_TYPE}wall" -gravity center -crop 1:1 +repage ~/.cache/rofiwall
