@@ -14,7 +14,7 @@ selected_entry=$(
 )
 
 if [ "$selected_entry" = "󰘳  Open Backup History" ]; then
-  HISTORY_FILE="/mnt/Disk_D/Muhammad/Linux_stuff/Backup/BraveHistoryArchive.db"
+  HISTORY_FILE="/mnt/Disk_D/Muhammad/Linux-Backup/BraveHistoryArchive.db"
   selected_entry=$(sqlite3 -separator "  󰛂  " "$HISTORY_FILE" "SELECT title, url FROM urls ORDER BY last_visit_time DESC;" | rofi -dmenu -no-custom -i -p "Backup History:")
 fi
 

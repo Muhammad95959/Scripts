@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SRC="$HOME/.config/BraveSoftware/Brave-Browser/Default/History"
-DST="/mnt/Disk_D/Muhammad/Linux_stuff/Backup/BraveHistoryArchive.db"
+DST="/mnt/Disk_D/Muhammad/Linux-Backup/BraveHistoryArchive.db"
 SRC_ALt="/tmp/BraveHistory"
 
 if [ ! -f "$DST" ]; then
