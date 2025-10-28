@@ -4,7 +4,7 @@
 used_workspaces=$(i3-msg -t get_workspaces | jq '.[] | .num')
 
 # Create a list of all possible workspace numbers from 1 to 10
-all_workspaces=$(seq 1 10)
+all_workspaces=$(seq 1 9)
 
 # Find the first unused workspace
 first_unused_workspace=""
