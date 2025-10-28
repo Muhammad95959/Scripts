@@ -22,6 +22,7 @@ if [ -n "$address" ]; then
     workspace=$(hyprctl activeworkspace -j | jq -r '.id')
     hyprctl dispatch movetoworkspacesilent "$workspace,address:$address"
     hyprctl dispatch focuswindow address:"$address"
+    hyprctl dispatch alterzorder top, address:"$address"
     exit
   fi
 fi
