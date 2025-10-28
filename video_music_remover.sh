@@ -6,8 +6,9 @@ model_dir="/mnt/Disk_D/Muhammad/Audio-Separator-Models"
 model_name="1_HP-UVR.pth"
 
 [ -z "$input_video" ] && exit 1
+[ -f "$input_video"-music-free.mp4 ] && exit 0
 
-mkdir "$input_video"-parts && ffmpeg -i "$input_video" -c copy -segment_time 60 -f segment "$input_video"-parts/part%d.mp4
+mkdir "$input_video"-parts && ffmpeg -i "$input_video" -c copy -segment_time 180 -f segment "$input_video"-parts/part%d.mp4
 
 cd "$input_video"-parts || exit 1
 
