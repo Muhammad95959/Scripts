@@ -39,23 +39,14 @@ else
   nohup $chromium_based_browser "--app=$en_to_ar&text=$text" --test-type >/dev/null 2>&1 &
 fi
 
-while true; do
-  if pgrep -x i3; then
+if pgrep -x i3; then
+  while true; do
     focusedClass=$(xprop -id "$(xdotool getwindowfocus)" | awk -F '"' '/WM_CLASS/{print $2}')
     if [ "$focusedClass" = "$browser_class" ]; then
-      # i3-msg floating enable, resize set 960 720, move position center
       i3-msg floating enable, resize set 740 960, move position center
       picom-trans -c 75
       break
     fi
     sleep 0.1
-  elif pgrep -x Hyprland; then
-    focusedClass=$(hyprctl -j clients | jq -r '.[] | select(.focusHistoryID == 0) | .initialTitle' | sed 's/_\/$//')
-    if [ "$focusedClass" = "$browser_class" ]; then
-      # hyprctl --batch "dispatch setfloating; dispatch resizeactive exact 960 720; dispatch centerwindow; dispatch setprop active alpha 0.75"
-      hyprctl --batch "dispatch setfloating; dispatch resizeactive exact 740 960; dispatch centerwindow; dispatch setprop active alpha 0.75"
-      break
-    fi
-    sleep 0.1
-  fi
-done
+  done
+fi
