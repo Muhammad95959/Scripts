@@ -1,7 +1,7 @@
 #!/bin/sh
 
 apps=$(ps -eo pid,%mem,comm --sort=-%mem | awk '{if ($1 != "PID") print $0}')
-selected_app=$(printf '%s' "$apps" | rofi -dmenu -theme ~/.config/rofi/launcher.rasi)
+selected_app=$(printf '%s' "$apps" | rofi -dmenu -theme ~/.config/rofi/launcher.rasi -i -p "Kill")
 selected_app_PID=$(echo "$selected_app" | awk '{print $1}')
 selected_app_name=$(echo "$selected_app" | awk '{print $3}')
 
