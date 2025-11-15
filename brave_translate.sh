@@ -34,9 +34,9 @@ if [ "$arabic_count" -gt "$english_count" ]; then
     done
   }
   encoded_text=$(urlencode "$text")
-  nohup $chromium_based_browser "--app=$ar_to_en&text=$encoded_text" --test-type >/dev/null 2>&1 &
+  nohup $chromium_based_browser "--app=$ar_to_en&text=$encoded_text" --test-type --password-store=basic >/dev/null 2>&1 &
 else
-  nohup $chromium_based_browser "--app=$en_to_ar&text=$text" --test-type >/dev/null 2>&1 &
+  nohup $chromium_based_browser "--app=$en_to_ar&text=$text" --test-type --password-store=basic >/dev/null 2>&1 &
 fi
 
 if pgrep -x i3; then

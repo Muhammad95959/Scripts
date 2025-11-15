@@ -11,5 +11,5 @@ selected_url=$(echo "$selected_entry" | awk -F '  󰛂  ' '{print $2}')
 
 if [ -n "$selected_url" ]; then
   export XDG_CONFIG_HOME=
-  brave --test-type "$selected_url"
+  brave --test-type --password-store=basic "$selected_url"
 fi
