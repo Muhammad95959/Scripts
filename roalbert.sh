@@ -6,7 +6,7 @@ else
   focused_window_title=$(xdotool getwindowfocus getwindowname)
 fi
 if [ "$focused_window_title" = "Albert" ]; then
-  rofi -show drun -theme ~/.config/rofi/launcher.rasi
+  rofi -show drun -theme ~/.config/rofi/arc_rounded.rasi
 else
   if pgrep -x albert >/dev/null 2>&1; then
     albert toggle
