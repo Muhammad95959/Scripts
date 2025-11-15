@@ -18,7 +18,7 @@ if [ "$XDG_SESSION_TYPE" = "x11" ]; then
   feh --no-fehbg --bg-fill "$selected_wallpaper_path"
 elif [ "$XDG_SESSION_TYPE" = "wayland" ]; then
   pgrep -x swww-daemon >/dev/null 2>&1 || setsid swww-daemon >/dev/null 2>&1 &
-  swww img "$selected_wallpaper_path" --transition-type "fade" --transition-duration 1
+  swww img "$selected_wallpaper_path" --transition-type "none" --transition-duration 0
 fi
 
 ln -fs "$selected_wallpaper_path" "$HOME/.cache/${XDG_SESSION_TYPE}wall"
