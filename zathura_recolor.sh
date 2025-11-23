@@ -9,7 +9,8 @@ Black on White
 Black on Beige
 catppuccin 'B'
 catppuccin
-embark\
+embark
+tokyonight\
 " | rofi -dmenu -no-custom -i -theme ~/.config/rofi/zathura_recolor.rasi -p "choose a theme: ")
 
 case "$chosen" in
@@ -158,6 +159,31 @@ set render-loading-bg        \"#3E3859\"\n\
 set render-loading-fg        \"#CBE3E7\"\n\
 set highlight-color          rgba(244,143,177,0.8)\n\
 set highlight-active-color   rgba(135,223,235,0.8)\n" "$HOME"/DotFiles/.config/zathura/zathurarc
+  ;;
+"tokyonight")
+  sed -i "1,/^$/\
+c\\
+set default-bg               \"#1a1b26\"\n\
+set default-fg               \"#a9b1d6\"\n\
+set statusbar-fg             \"#a9b1d6\"\n\
+set statusbar-bg             \"#24283b\"\n\
+set inputbar-bg              \"#1a1b26\"\n\
+set inputbar-fg              \"#73daca\"\n\
+set notification-bg          \"#1a1b26\"\n\
+set notification-fg          \"#73daca\"\n\
+set notification-error-bg    \"#1a1b26\"\n\
+set notification-error-fg    \"#f7768e\"\n\
+set notification-warning-bg  \"#1a1b26\"\n\
+set notification-warning-fg  \"#f7768e\"\n\
+set completion-bg            \"#24283b\"\n\
+set completion-fg            \"#a9b1d6\"\n\
+set completion-highlight-fg  \"#9aa5ce\"\n\
+set completion-highlight-bg  \"#24283b\"\n\
+set recolor-lightcolor       \"#16161e\"\n\
+set recolor-darkcolor        \"#a9b1d6\"\n\
+set highlight-color          rgba(224,175,104,0.8)\n\
+set highlight-fg             rgb(154,165,206,0.8)\n\
+set highlight-active-color   rgb(154,165,206,0.8)\n" "$HOME"/DotFiles/.config/zathura/zathurarc
   ;;
 esac
 
