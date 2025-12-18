@@ -30,7 +30,7 @@ fi
 # Multiple windows → show Rofi
 CHOICE=$(printf "%s\n" "$WINDOWS" |
   rofi -dmenu \
-    -theme ~/.config/rofi/script_chooser.rasi \
+    -theme ~/.config/rofi/arc_rounded.rasi \
     -theme-str "listview { lines: $COUNT; }" \
     -p "Window: ")
 
