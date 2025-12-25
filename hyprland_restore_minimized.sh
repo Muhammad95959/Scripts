@@ -7,7 +7,7 @@ CURRENT_WS=$(hyprctl -j monitors |
 # Get list of special-workspace windows
 WINDOWS=$(hyprctl -j clients |
   jq -r '.[] 
-      | select(.workspace.name | startswith("special"))
+      | select(.workspace.name == "special:minimized")
       | "\(.address) ::: \(.title)"')
 
 # Count them
@@ -15,7 +15,7 @@ COUNT=$(printf "%s\n" "$WINDOWS" | sed '/^$/d' | wc -l)
 
 # No windows
 if [ "$COUNT" -eq 0 ]; then
-  notify-send -t 2500 "Hyprland" "No windows in the special workspace."
+  notify-send -t 2500 "Hyprland" "No windows in the minimized workspace."
   exit 0
 fi
 
