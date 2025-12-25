@@ -37,4 +37,6 @@ elif [ "$1" = "-r" ]; then
   else
     echo "$time_value until $next_salah" | sed -E 's/Sherook/Shuruk/; s/Dohr/Dhuhr/; s/Ma?ghreb/Maghrib/'
   fi
+else 
+  echo "Usage: $0 [-a|-r]"
 fi
