@@ -17,16 +17,8 @@ ruddy_pink_companion="#EA7183"
 slate_blue="#7B58DC"
 slate_blue_companion="#6A43D8"
 
-chosen=$(printf "\
-Blue Jeans
-Deep Champagne
-Lavender Blue
-Light Salmon
-Middle Blue Green
-Pale Violet
-Ruddy Pink
-Slate Blue\
-" | rofi -dmenu -no-custom -i -theme ~/.config/rofi/border_color_chooser.rasi -p "choose a color: ")
+chosen=$(printf '%s\n' "Blue Jeans" "Deep Champagne" "Lavender Blue" "Light Salmon" "Middle Blue Green" "Pale Violet" "Ruddy Pink" "Slate Blue" | 
+  rofi -dmenu -no-custom -i -theme ~/.config/rofi/border_color_chooser.rasi -p "choose a color: ")
 
 change_border() {
   c1=$(echo "$1" | sed 's/#//')

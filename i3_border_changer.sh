@@ -19,20 +19,12 @@ ruddy_pink_companion="#ea7183"
 slate_blue="#7b58dc"
 slate_blue_companion="#6a43d8"
 
-chosen=$(printf "\
-Blue Jeans
-Deep Champagne
-Lavender Blue
-Light Salmon
-Middle Blue Green
-Pale Violet
-Ruddy Pink
-Slate Blue\
-" | rofi -dmenu -no-custom -i -theme ~/.config/rofi/border_color_chooser.rasi -p "choose a color: ")
+chosen=$(printf '%s\n' "Blue Jeans" "Deep Champagne" "Lavender Blue" "Light Salmon" "Middle Blue Green" "Pale Violet" "Ruddy Pink" "Slate Blue" |
+  rofi -dmenu -no-custom -i -theme ~/.config/rofi/border_color_chooser.rasi -p "choose a color: ")
 
 change_border() {
-	sed -Ei "/^client.focused.*###/s/^.*###/client.focused          $1 $1 $3 $2   $1    ###/" ~/DotFiles/.config/i3/config
-	i3-msg restart
+  sed -Ei "/^client.focused.*###/s/^.*###/client.focused          $1 $1 $3 $2   $1    ###/" ~/DotFiles/.config/i3/config
+  i3-msg restart
 }
 
 case "$chosen" in
