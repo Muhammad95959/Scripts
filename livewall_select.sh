@@ -2,7 +2,6 @@
 
 livewall_path="/mnt/Disk_D/Backgrounds/Live"
 selected=$(find "$livewall_path" -type f ! -name "active" -exec basename {} \; | rofi -dmenu -p "Select Live Wallpaper")
-export XDG_CONFIG_HOME=
 [ -z "$selected" ] && exit
 ln -frs "$livewall_path/$selected" "$livewall_path/active"
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then

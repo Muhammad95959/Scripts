@@ -5,8 +5,6 @@ file_paths=$(sqlite3 "${XDG_DATA_HOME:-$HOME/.local/share}/zathura/bookmarks.sql
 		[ -e "$path" ] && echo "$path"
 	done | rofi -dmenu -no-custom -i -p "Search:")
 
-export XDG_CONFIG_HOME=
-
 if [ -n "$file_paths" ]; then
 	setsid zathura "$file_paths" >/dev/null 2>&1 &
 fi

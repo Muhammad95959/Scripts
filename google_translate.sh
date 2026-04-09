@@ -11,8 +11,6 @@ text=$(
 
 [ -z "$text" ] && exit 1
 
-export XDG_CONFIG_HOME=
-
 arabic_count=$(echo "$text" | grep -o -P "\p{Arabic}" | wc -l)
 english_count=$(echo "$text" | grep -o -P "[A-Za-z]" | wc -l)
 
