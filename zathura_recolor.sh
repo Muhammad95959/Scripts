@@ -1,7 +1,19 @@
 #!/bin/sh
 
-chosen=$(printf '%s\n' "Tokyonight" "Catppuccin" "Embark" "Beige" |
-  rofi -dmenu -no-custom -i -theme ~/.config/rofi/zathura_recolor.rasi -p "choose a theme: ")
+chosen=$(
+  count=0
+  names=""
+  for f in ~/.config/zathura/colors/*.conf; do
+    [ -e "$f" ] || continue
+    name=$(basename "${f%.conf}")
+    names="${names}${name}\n"
+    count=$((count + 1))
+  done
+  printf "%b" "$names" | rofi -dmenu -no-custom -i \
+    -lines "$count" \
+    -theme ~/.config/rofi/zathura_recolor.rasi \
+    -p "choose a theme: "
+)
 
 [ -z "$chosen" ] && exit 1
 
