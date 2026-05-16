@@ -1,12 +1,18 @@
 #!/bin/sh
 
-if ! fuser ~/.config/BraveSoftware/Brave-Browser/Default/History >/dev/null 2>&1; then
-  cp ~/.config/BraveSoftware/Brave-Browser/Default/History /tmp/BraveHistory
+browser="brave-origin-beta"
+history_file="/tmp/BraveHistory"
+browser_history_path="$HOME/.config/BraveSoftware/Brave-Origin-Beta/Default/History"
+
+# browser="helium-browser"
+# history_file="/tmp/HeliumHistory"
+# browser_history_path="$HOME/.config/net.imput.helium/Default/History"
+
+if ! fuser "$browser_history_path" >/dev/null 2>&1; then
+  cp "$browser_history_path" $history_file
 fi
 
-HISTORY_FILE="/tmp/BraveHistory"
-
-selected_entry=$(sqlite3 -separator "  󰛂  " "$HISTORY_FILE" "SELECT title, url FROM urls ORDER BY last_visit_time DESC;" | rofi -dmenu -no-custom -i -p "History:")
+selected_entry=$(sqlite3 -separator "  󰛂  " "$history_file" "SELECT title, url FROM urls ORDER BY last_visit_time DESC;" | rofi -dmenu -no-custom -i -p "History:")
 selected_url=$(echo "$selected_entry" | awk -F '  󰛂  ' '{print $2}')
 
-[ -n "$selected_url" ] && brave --test-type --password-store=basic "$selected_url"
+[ -n "$selected_url" ] && "$browser" --test-type --password-store=basic "$selected_url"

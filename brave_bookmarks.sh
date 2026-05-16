@@ -1,7 +1,10 @@
 #!/bin/sh
 
-# Path to Brave bookmarks file
-BOOKMARKS_FILE="$HOME/.config/BraveSoftware/Brave-Browser/Default/Bookmarks"
+browser="brave-origin-beta"
+BOOKMARKS_FILE="$HOME/.config/BraveSoftware/Brave-Origin-Beta/Default/Bookmarks"
+
+# browser="helium-browser"
+# BOOKMARKS_FILE="$HOME/.config/net.imput.helium/Default/Bookmarks"
 
 # Temporary files to hold names and URLs
 names_file=$(mktemp)
@@ -33,9 +36,9 @@ selected_url=$(awk -v name="$selected_name" '
     { if (names[FNR] == name) print $0 }
 ' "$names_file" "$urls_file")
 
-# If a URL was selected, open it in Brave
+# If a URL was selected, open it in $browser
 if [ -n "$selected_url" ]; then
-  brave --test-type --password-store=basic "$selected_url"
+  "$browser" --test-type --password-store=basic "$selected_url"
 fi
 
 # Clean up temporary files

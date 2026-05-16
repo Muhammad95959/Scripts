@@ -1,6 +1,6 @@
 #!/bin/sh
 
-chromium_based_browser="brave"
+chromium_based_browser="brave-origin-beta"
 
 en_to_ar="https://translate.google.com.eg/?hl=ar&tab=rT1&sl=en&tl=ar&op=translate"
 ar_to_en="https://translate.google.com.eg/?hl=ar&tab=rT1&sl=ar&tl=en&op=translate"
@@ -18,16 +18,8 @@ english_count=$(echo "$text" | grep -o -P "[A-Za-z]" | wc -l)
 
 if [ "$arabic_count" -gt "$english_count" ]; then
   urlencode() {
-    _str="$1"
-    _str_len=${#_str}
-    _pos=0
-    while [ "$_pos" -lt "$_str_len" ]; do
-      _c=$(printf '%s' "$_str" | cut -c "$((_pos + 1))")
-      case "$_c" in
-      [a-zA-Z0-9.~_-]) printf '%s' "$_c" ;;
-      *) printf '%%%02X' "'$_c" ;;
-      esac
-      _pos=$((_pos + 1))
+    printf '%s' "$1" | od -An -tx1 | tr ' ' '\n' | grep -v '^$' | while read -r hex; do
+      printf '%%%s' "$hex" | tr 'a-f' 'A-F'
     done
   }
   encoded_text=$(urlencode "$text")
