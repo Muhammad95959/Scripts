@@ -22,4 +22,4 @@ hours=$(echo "$total_duration / 3600" | bc)
 minutes=$(echo "($total_duration % 3600) / 60" | bc)
 seconds=$(echo "$total_duration % 60" | bc)
 
-notify-send -t 7500 "$(printf "Duration: %02d:%02d:%02d\n" "$hours" "$minutes" "$seconds")"
+notify-send -t 15000 "$(printf "Duration: %02d:%02d:%02d\n" "$hours" "$minutes" "$seconds")"
