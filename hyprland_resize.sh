@@ -13,4 +13,11 @@ options="\
 (;) 320 x 180"
 
 size=$(echo "$options" | rofi -dmenu -no-custom -i -theme ~/.config/rofi/oneliner.rasi -p "choose the dimentions: " | awk '{print $2 " " $4}')
-test -z "$size" || hyprctl --batch "dispatch setfloating; dispatch resizeactive exact $size; dispatch centerwindow"
+
+test -z "$size" || {
+  w=$(echo "$size" | awk '{print $1}')
+  h=$(echo "$size" | awk '{print $2}')
+  hyprctl dispatch 'hl.dsp.window.float({ action = "on" })'
+  hyprctl dispatch 'hl.dsp.window.resize({ x = '"$w"', y = '"$h"' })'
+  hyprctl dispatch 'hl.dsp.window.center()'
+}
