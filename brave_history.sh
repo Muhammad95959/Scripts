@@ -8,9 +8,8 @@ browser_history_path="$HOME/.config/BraveSoftware/Brave-Origin-Beta/Default/Hist
 # history_file="/tmp/HeliumHistory"
 # browser_history_path="$HOME/.config/net.imput.helium/Default/History"
 
-if ! fuser "$browser_history_path" >/dev/null 2>&1; then
-  cp "$browser_history_path" $history_file
-fi
+cp "$browser_history_path" "$history_file"
+cp "${browser_history_path}-journal" "${history_file}-journal" 2>/dev/null
 
 selected_entry=$(sqlite3 -separator "  󰛂  " "$history_file" "SELECT title, url FROM urls ORDER BY last_visit_time DESC;" | rofi -dmenu -no-custom -i -p "History:")
 selected_url=$(echo "$selected_entry" | awk -F '  󰛂  ' '{print $2}')
