@@ -1,13 +1,14 @@
 #!/bin/sh
 
+MAX_URL_LEN=55
 url=$(wl-paste)
-quality=$(printf "144p\n240p\n360p\n480p\n720p\n1080p" | rofi -dmenu -mesg "$url" -theme ~/.config/rofi/url_to_mpv.rasi)
 
-case $quality in
-"144p") mpv --ytdl-format="[height<=144]" "$url" ;;
-"240p") mpv --ytdl-format="[height<=240]" "$url" ;;
-"360p") mpv --ytdl-format="[height<=360]" "$url" ;;
-"480p") mpv --ytdl-format="[height<=480]" "$url" ;;
-"720p") mpv --ytdl-format="[height<=720]" "$url" ;;
-"1080p") mpv --ytdl-format="[height<=1080]" "$url" ;;
-esac
+short_url=$(echo "$url" | cut -c1-$MAX_URL_LEN)
+[ ${#url} -gt $MAX_URL_LEN ] && short_url="${short_url}…"
+
+quality=$(printf "144p\n240p\n360p\n480p\n720p\n1080p" | rofi -dmenu -mesg "$short_url" -theme ~/.config/rofi/url_to_mpv.rasi)
+
+[ -z "$quality" ] && exit 1
+
+height=${quality%p}
+mpv --ytdl-format="bestvideo[height<=$height]+bestaudio/best[height<=$height]" "$url"
