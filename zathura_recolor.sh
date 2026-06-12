@@ -20,5 +20,5 @@ chosen=$(
 path=~/.config/zathura/colors/"$chosen".conf
 if [ -f "$path" ]; then
   cp "$path" ~/.config/zathura/colors.conf &&
-    wtype -d 25 ":source" -k return -k escape -M ctrl r
+    wtype -d 25 ":source" -k return -k escape -s 25 -M ctrl r
 fi
