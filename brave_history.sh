@@ -1,8 +1,8 @@
 #!/bin/sh
 
-browser="brave-origin-beta"
+browser="brave-origin"
 history_file="/tmp/BraveHistory"
-browser_history_path="$HOME/.config/BraveSoftware/Brave-Origin-Beta/Default/History"
+browser_history_path="$HOME/.config/BraveSoftware/Brave-Origin/Default/History"
 
 # browser="helium-browser"
 # history_file="/tmp/HeliumHistory"

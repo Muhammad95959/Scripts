@@ -1,7 +1,7 @@
 #!/bin/sh
 
-browser="brave-origin-beta"
-BOOKMARKS_FILE="$HOME/.config/BraveSoftware/Brave-Origin-Beta/Default/Bookmarks"
+browser="brave-origin"
+BOOKMARKS_FILE="$HOME/.config/BraveSoftware/Brave-Origin/Default/Bookmarks"
 
 # browser="helium-browser"
 # BOOKMARKS_FILE="$HOME/.config/net.imput.helium/Default/Bookmarks"

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-chromium_based_browser="brave-origin-beta"
+chromium_based_browser="brave-origin"
 
 en_to_ar="https://translate.google.com.eg/?hl=ar&tab=rT1&sl=en&tl=ar&op=translate"
 ar_to_en="https://translate.google.com.eg/?hl=ar&tab=rT1&sl=ar&tl=en&op=translate"
