@@ -1,71 +1,69 @@
 #!/bin/sh
 
-cd ~/Downloads || echo "$HOME/Downloads directory doesn't exist"
-toilet yt-dlp script -w 100 --metal --filter border
-
-blueText() {
-	reset="\033[0m"
-	blue="\033[1;34m"
-	echo "$blue$1$reset"
+# Exit if Downloads dir is missing
+cd ~/Downloads || {
+  echo "Error: ~/Downloads does not exist"
+  exit 1
 }
 
-printf "%s" "$(blueText "Do you want to download a playlist? [n/y]: ")"
+# Show banner only if toilet is available
+command -v toilet >/dev/null 2>&1 &&
+  toilet "yt-dlp script" -w 100 --metal --filter border
+
+# --- Helper: print in blue ---
+blue() { printf "\033[1;34m%s\033[0m" "$1"; }
+
+# --- Playlist or single video? ---
+printf "%s" "$(blue "Do you want to download a playlist? [n/y]: ")"
 read -r isPlaylist
 
-split=""
-if [ "$isPlaylist" = "y" ] || [ "$isPlaylist" = "Y" ]; then
-	printf "%s" "$(blueText "\n1: download certain videos\n2: download the full playlist (default)\nyour choice : ")"
-	read -r pChoice
-else
-	printf "%s" "$(blueText "\nDo you want to split chapters? [n/y]: ")"
-	read -r split
-fi
-
-if [ "$split" = "y" ] || [ "$split" = "Y" ]; then
-	split="--split-chapters"
-fi
-
-printf "%s" "
-$(blueText "url: ")"
-read -r url
-
+splitFlag=""
 toDownload=""
-case $pChoice in
-1)
-	printf "%s" "$(blueText "\nthe videos in the format [ eg: 1,3-7,13 ] : ")"
-	read -r pVideos
-	toDownload="--playlist-items=$pVideos"
-	;;
-*) ;;
-esac
+pChoice=""
 
-trap 'trap - INT' INT
+if [ "$isPlaylist" = "y" ] || [ "$isPlaylist" = "Y" ]; then
+  printf "%s" "$(blue "\n1: download certain videos\n2: download the full playlist (default)\nyour choice : ")"
+  read -r pChoice
+else
+  printf '\n'
+  printf "%s" "$(blue "Do you want to split chapters? [n/y]: ")"
+  read -r splitChoice
+  [ "$splitChoice" = "y" ] || [ "$splitChoice" = "Y" ] && splitFlag="--split-chapters"
+fi
 
-printf "%s" "$(blueText "
-download options:- 
-1: all (default)
-2: audio only
-3: video only
-4: full
+# --- URL ---
+printf '\n'
+printf "%s" "$(blue "url: ")"
+read -r url
+[ -z "$url" ] && {
+  echo "Error: URL cannot be empty."
+  exit 1
+}
 
-your choice : ")"
-read -r choice
+# --- Playlist item selection ---
+if [ "$pChoice" = "1" ]; then
+  printf "%s" "$(blue "\nVideos to download [eg: 1,3-7,13]: ")"
+  read -r pVideos
+  toDownload="--playlist-items=$pVideos"
+fi
 
-case $choice in
-2) yt-dlp -F "$toDownload" "$url" | sed '/images/d;/audio\ only/d;/video\ only/d;/^\[youtube/d;/^\[info/d' ;;
-3) yt-dlp -F "$toDownload" "$url" | grep -i 'audio only\|^\[download' ;;
-4) yt-dlp -F "$toDownload" "$url" | grep -i 'video only\|^\[download' ;;
-*) yt-dlp -F "$toDownload" "$url" ;;
-esac
+# --- Format selection ---
+yt-dlp -F ${toDownload:+$toDownload} "$url"
 
-trap - INT
-
-printf "%s" "$(blueText "\nyour chosen ID : ")"
+printf "%s" "$(blue "your chosen ID : ")"
 read -r quality
+[ -z "$quality" ] && {
+  echo "Error: format ID cannot be empty."
+  exit 1
+}
 
+# --- Download ---
 case $isPlaylist in
-y | Y) yt-dlp -f "$quality" -o "%(playlist_index)02d - %(title)s.%(ext)s" "$toDownload" "$url" ;;
-*) yt-dlp "$split" -f "$quality" "$url" ;;
+y | Y) yt-dlp -f "$quality" -o "%(playlist_index)02d - %(title)s.%(ext)s" ${toDownload:+$toDownload} "$url" ;;
+*) yt-dlp ${splitFlag:+$splitFlag} -f "$quality" "$url" ;;
 esac
 
-notify-send "download completed"
+# Notify if available
+command -v notify-send >/dev/null 2>&1 && notify-send "download completed"
+blue "Done!"
+printf '\n'
