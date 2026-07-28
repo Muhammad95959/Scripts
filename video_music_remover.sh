@@ -1,12 +1,18 @@
 #!/bin/sh
-audio_separator="/mnt/Disk_D/برامج/Linux/python312/bin/audio-separator"
-model_dir="/mnt/Disk_D/Muhammad/Audio-Separator-Models"
+audio_separator="audio-separator"
+model_dir="$HOME/.local/share/pipx/venvs/audio-separator/models"
 model_name="1_HP-UVR.pth"
+
 [ -z "$1" ] && exit 1
 for input_video in "$@"; do
-  parts_dir="${input_video}-parts"
-  output_file="${input_video}-music-free.mp4"
-  [ -f "$output_file" ] && continue
+  base="${input_video%.*}"
+  ext="${input_video##*.}"
+  backup_video="${base}.original.${ext}"
+  parts_dir="${base}-parts"
+  output_file="$input_video"
+
+  # Already fully processed -> skip
+  [ -f "$backup_video" ] && continue
 
   # Get duration and calculate part count to determine padding width
   duration=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$input_video" | cut -d. -f1)
@@ -16,7 +22,6 @@ for input_video in "$@"; do
   }
   part_count=$(((duration + 179) / 180))
   pad=${#part_count}
-
   [ -d "$parts_dir" ] || { mkdir "$parts_dir" && ffmpeg -i "$input_video" -c copy -segment_time 180 -f segment "$parts_dir/part%0${pad}d.mp4"; }
   cd "$parts_dir" || exit 1
   count=$(find . -maxdepth 1 -type f -name 'part*.mp4' | wc -l)
@@ -43,10 +48,17 @@ for input_video in "$@"; do
     echo "file '$output'" >>output_list.txt
     i=$((i + 1))
   done
-  ffmpeg -f concat -safe 0 -i output_list.txt -c copy "../$output_file" ||
+  cd .. || exit 1
+
+  # Rename the original only now, right before producing the final combined file
+  mv "$input_video" "$backup_video" || {
+    echo "ERROR: could not rename $input_video to $backup_video"
+    exit 1
+  }
+
+  ffmpeg -f concat -safe 0 -i "$parts_dir/output_list.txt" -c copy "$output_file" ||
     {
       echo "ERROR: final concat failed"
       exit 1
     }
-  cd .. || exit 1
 done
