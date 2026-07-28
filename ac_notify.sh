@@ -21,14 +21,12 @@ Events:
   unplugged          Charger unplugged
   low <percent>      Low battery warning
   critical <percent> Critical battery warning
-  full               Battery fully charged
 
 Examples:
-  $0 unplugged
   $0 plugged
+  $0 unplugged
   $0 low 15
   $0 critical 5
-  $0 full
 EOF
 }
 
@@ -48,10 +46,19 @@ notify() {
 
 case "$1" in
 plugged)
-  notify \
-    "Charger Plugged In" \
-    "AC power connected." \
-    "$ICON_BASE/24/panel/battery-070-charging.svg"
+  BAT=$(find /sys/class/power_supply -maxdepth 1 -name "BAT*" | head -n1)
+  PERCENT=$(cat "$BAT/capacity")
+  if [[ "$PERCENT" -ge 100 ]]; then
+    notify \
+      "Battery Full" \
+      "You can unplug the charger." \
+      "$ICON_BASE/24/panel/battery-100-charged.svg"
+  else
+    notify \
+      "Charger Plugged In" \
+      "AC power connected." \
+      "$ICON_BASE/24/panel/battery-070-charging.svg"
+  fi
   ;;
 
 unplugged)
@@ -78,13 +85,6 @@ critical)
     "$ICON_BASE/24/panel/battery-empty.svg" \
     "critical"
   paplay "$SOUND" 2>/dev/null &
-  ;;
-
-full)
-  notify \
-    "Battery Full" \
-    "You can unplug the charger." \
-    "$ICON_BASE/24/panel/battery-100-charged.svg"
   ;;
 
 -h | --help | "")
