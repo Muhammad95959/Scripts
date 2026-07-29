@@ -2,9 +2,19 @@
 
 DATE=$(date +%Y-%m-%d)
 
-if [ ! -f /mnt/Disk_D/Muhammad/Linux-Backup/zsh_history/zsh_history_"${DATE}".bak ]; then
-  cp /home/muhammad/.zhistory /mnt/Disk_D/Muhammad/Linux-Backup/zsh_history/zsh_history_"${DATE}".bak
-  cp /home/muhammad/.local/share/greenclip.history /mnt/Disk_D/Muhammad/Linux-Backup/greenclip_history/greenclip_history_"${DATE}".bak
+ZSH_DIR=/mnt/Disk_D/Muhammad/Linux-Backup/zsh_history
+CLIPHIST_DIR=/mnt/Disk_D/Muhammad/Linux-Backup/cliphist_db
+
+if [ ! -f "${ZSH_DIR}/zsh_history_${DATE}.bak" ]; then
+  mkdir -p "${ZSH_DIR}" "${CLIPHIST_DIR}"
+
+  cp /home/muhammad/.zhistory "${ZSH_DIR}/zsh_history_${DATE}.bak"
+  cp /home/muhammad/.local/share/cliphist/db "${CLIPHIST_DIR}/cliphist_db_${DATE}.bak"
+
+  # keep only the 5 most recent backups (today's + last 4)
+  find "${ZSH_DIR}" -maxdepth 1 -name 'zsh_history_*.bak' | sort -r | tail -n +6 | xargs -r rm --
+  find "${CLIPHIST_DIR}" -maxdepth 1 -name 'cliphist_db_*.bak' | sort -r | tail -n +6 | xargs -r rm --
+
   sudo timeshift --create
   ~/Scripts/update_Arch-Backup_repo.sh
   mkdir -p ~/.cache/aur && curl -s https://aur.archlinux.org/packages.gz | gzip -d >~/.cache/aur/packages.txt &
