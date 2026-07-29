@@ -2,7 +2,7 @@
 
 set -eu
 
-DEST="/mnt/Disk_D/Muhammad/Repositories/Arch-Backup/root-files"
+DEST="$HOME/Arch-Setup/root-files"
 
 bak() {
   src="$1"

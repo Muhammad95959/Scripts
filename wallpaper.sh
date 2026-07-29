@@ -1,6 +1,6 @@
 #!/bin/sh
 
-wallpapers_paths="/mnt/Disk_D/Backgrounds"
+wallpapers_paths="$HOME/Backgrounds"
 wallpapers_list=$(eval fd .jpg "$wallpapers_paths" -E brave | sed -E 's/ /\\r/g')
 [ -f "$HOME/.cache/${XDG_SESSION_TYPE}wall" ] || ln -fs "$(echo "$wallpapers_list" | sed -n "1p")" "$HOME/.cache/${XDG_SESSION_TYPE}wall"
 current_wallpaper=$(readlink "$HOME/.cache/${XDG_SESSION_TYPE}wall")

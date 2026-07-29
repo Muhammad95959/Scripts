@@ -6,7 +6,7 @@ if [ "$1" = "-f" ]; then
     setsid awww-daemon >/dev/null 2>&1 &
   else
     pgrep -x awww-daemon >/dev/null && killall awww-daemon
-    /usr/bin/mpvpaper eDP-1 -fo "input-ipc-server=/tmp/mpv-socket no-audio loop no-config" "/mnt/Disk_D/Backgrounds/Live/active"
+    /usr/bin/mpvpaper eDP-1 -fo "input-ipc-server=/tmp/mpv-socket no-audio loop no-config" "$HOME/Backgrounds/Live/active"
     ~/Scripts/livewall_auto_pause.sh >/dev/null 2>&1 &
   fi
   exit 0
@@ -19,7 +19,7 @@ change_wallpaper() {
     setsid awww-daemon >/dev/null 2>&1 &
   elif [ "$current_state" = 1 ]; then
     pgrep -x awww-daemon >/dev/null && killall awww-daemon
-    /usr/bin/mpvpaper eDP-1 -fo "input-ipc-server=/tmp/mpv-socket no-audio loop no-config" "/mnt/Disk_D/Backgrounds/Live/active"
+    /usr/bin/mpvpaper eDP-1 -fo "input-ipc-server=/tmp/mpv-socket no-audio loop no-config" "$HOME/Backgrounds/Live/active"
     ~/Scripts/livewall_auto_pause.sh >/dev/null 2>&1 &
   fi
 }
