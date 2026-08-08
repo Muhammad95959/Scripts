@@ -22,16 +22,16 @@ for input_video in "$@"; do
   }
   part_count=$(((duration + 179) / 180))
   pad=${#part_count}
-  [ -d "$parts_dir" ] || { mkdir "$parts_dir" && ffmpeg -i "$input_video" -c copy -segment_time 180 -f segment "$parts_dir/part%0${pad}d.mp4"; }
+  [ -d "$parts_dir" ] || { mkdir "$parts_dir" && ffmpeg -i "$input_video" -c copy -segment_time 180 -segment_start_number 1 -f segment "$parts_dir/part%0${pad}d.${ext}"; }
   cd "$parts_dir" || exit 1
-  count=$(find . -maxdepth 1 -type f -name 'part*.mp4' | wc -l)
+  count=$(find . -maxdepth 1 -type f -name "part*.${ext}" | wc -l)
   true >output_list.txt
-  i=0
-  while [ "$i" -lt "$count" ]; do
+  i=1
+  while [ "$i" -le "$count" ]; do
     num=$(printf "%0${pad}d" "$i")
-    video="part${num}.mp4"
+    video="part${num}.${ext}"
     audio="part${num}_(Vocals)_1_HP-UVR.mp3"
-    output="output_part${num}.mp4"
+    output="output_part${num}.${ext}"
     if [ ! -f "$output" ]; then
       "$audio_separator" --model_file_dir "$model_dir" --model_filename "$model_name" \
         --single_stem Vocals --output_format=MP3 "$video" ||
