@@ -2,12 +2,15 @@
 
 set -eu
 
-DEST="$HOME/Arch-Setup/root-files"
+DEST="$HOME/Arch-Setup/root"
 
 bak() {
   src="$1"
+  rel="${src#/}"          # strip leading /
+  dst="$DEST/$rel"
   if [ -e "$src" ]; then
-    cp "$src" "$DEST/"
+    mkdir -p "$(dirname "$dst")"
+    cp "$src" "$dst"
     echo "  ✓ $src"
   else
     echo "  ✗ missing (skipped): $src" >&2
@@ -15,16 +18,18 @@ bak() {
 }
 
 bak /etc/NetworkManager/conf.d/20-connectivity.conf
+bak /etc/default/grub
 bak /etc/environment
+bak /etc/greetd/config.toml
+bak /etc/greetd/tuigreet.toml
 bak /etc/modprobe.d/nobeep.conf
 bak /etc/samba/smb.conf
-bak /usr/lib/sddm/sddm.conf.d/default.conf
 bak /etc/systemd/system/kanata.service
+bak /etc/systemd/system/switch-to-tty1-shutdown.service
 bak /usr/local/bin/bilal
-bak /usr/local/bin/confetti
+bak /usr/local/bin/confet
 bak /usr/local/bin/hyprland-minimizer
 bak /usr/share/albert/widgetsboxmodel/themes/Arc\ Dark.ini
 bak /usr/share/albert/widgetsboxmodel/themes/Tokyonight\ Dark.ini
-bak /usr/share/sddm/themes/simple-sddm/theme.conf
-
+bak /usr/share/wayland-sessions/hyprland-silent.desktop
 notify-send -t 3000 "Arch-Backup updated"
