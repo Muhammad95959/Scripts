@@ -15,7 +15,7 @@ if [ ! -f "${ZSH_DIR}/zsh_history_${DATE}.bak" ]; then
   find "${ZSH_DIR}" -maxdepth 1 -name 'zsh_history_*.bak' | sort -r | tail -n +6 | xargs -r rm --
   find "${CLIPHIST_DIR}" -maxdepth 1 -name 'cliphist_db_*.bak' | sort -r | tail -n +6 | xargs -r rm --
 
-  sudo timeshift --create
+  sudo snapper create
   ~/Scripts/update_Arch-Setup.sh
   mkdir -p ~/.cache/aur && curl -s https://aur.archlinux.org/packages.gz | gzip -d >~/.cache/aur/packages.txt &
   sudo updatedb &
