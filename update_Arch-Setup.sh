@@ -37,7 +37,6 @@ bak /etc/systemd/system/nmb-delay.timer
 bak /etc/systemd/system/snapper-systemd-boot.path
 bak /etc/systemd/system/snapper-systemd-boot.service
 bak /etc/systemd/system/switch-to-tty1-shutdown.service
-bak /etc/systemd/system/upower.service.d/no-block.conf
 bak /usr/local/bin/bilal
 bak /usr/local/bin/confet
 bak /usr/local/bin/hyprland-minimizer
@@ -45,4 +44,5 @@ bak /usr/local/bin/snapper-systemd-boot.sh
 bak /usr/share/albert/widgetsboxmodel/themes/Arc\ Dark.ini
 bak /usr/share/albert/widgetsboxmodel/themes/Tokyonight\ Dark.ini
 bak /usr/share/wayland-sessions/hyprland-silent.desktop
+
 notify-send -t 3000 "Arch-Backup updated"
