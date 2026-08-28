@@ -31,9 +31,6 @@ bak /etc/samba/smb.conf
 bak /etc/snapper/configs/root
 bak /etc/sysctl.d/99-sysctl.conf
 bak /etc/systemd/system/kanata.service
-bak /etc/systemd/system/libvirtd-delay.timer
-bak /etc/systemd/system/libvirtd.service.d/10-secret.conf
-bak /etc/systemd/system/nmb-delay.timer
 bak /etc/systemd/system/snapper-systemd-boot.path
 bak /etc/systemd/system/snapper-systemd-boot.service
 bak /etc/systemd/system/switch-to-tty1-shutdown.service
