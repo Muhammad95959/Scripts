@@ -4,9 +4,10 @@ en_to_ar="https://translate.google.com.eg/?hl=ar&tab=rT1&sl=en&tl=ar&op=translat
 ar_to_en="https://translate.google.com.eg/?hl=ar&tab=rT1&sl=ar&tl=en&op=translate"
 
 text=$(
-	rofi -dmenu \
-		-p "Translate : " \
-		-theme "${XDG_CONFIG_HOME:-~/.config}"/rofi/oneliner.rasi
+  rofi -dmenu \
+    -p "Translate : " \
+    -theme "${XDG_CONFIG_HOME:-~/.config}"/rofi/oneliner.rasi \
+    -theme-str 'mainbox { children: [ inputbar ]; } inputbar { width: 100%; }'
 )
 
 [ -z "$text" ] && exit 1
@@ -15,7 +16,7 @@ arabic_count=$(echo "$text" | grep -o -P "\p{Arabic}" | wc -l)
 english_count=$(echo "$text" | grep -o -P "[A-Za-z]" | wc -l)
 
 if [ "$arabic_count" -gt "$english_count" ]; then
-	xdg-open "$ar_to_en&text=$text"
+  xdg-open "$ar_to_en&text=$text"
 else
-	xdg-open "$en_to_ar&text=$text"
+  xdg-open "$en_to_ar&text=$text"
 fi

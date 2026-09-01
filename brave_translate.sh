@@ -8,7 +8,8 @@ ar_to_en="https://translate.google.com.eg/?hl=ar&tab=rT1&sl=ar&tl=en&op=translat
 text=$(
   rofi -dmenu \
     -p "Translate : " \
-    -theme "${XDG_CONFIG_HOME:-~/.config}"/rofi/oneliner.rasi
+    -theme "${XDG_CONFIG_HOME:-~/.config}"/rofi/oneliner.rasi \
+    -theme-str 'mainbox { children: [ inputbar ]; } inputbar { width: 100%; }'
 )
 
 [ -z "$text" ] && exit 1
