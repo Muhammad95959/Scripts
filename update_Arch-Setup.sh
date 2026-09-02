@@ -34,7 +34,6 @@ bak /etc/systemd/system/kanata.service
 bak /etc/systemd/system/snapper-systemd-boot.path
 bak /etc/systemd/system/snapper-systemd-boot.service
 bak /etc/systemd/system/start-services.service
-bak /etc/systemd/system/stop-libvirtd.service
 bak /etc/systemd/system/switch-to-tty1-shutdown.service
 bak /usr/local/bin/bilal
 bak /usr/local/bin/confet
