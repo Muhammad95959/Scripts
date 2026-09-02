@@ -39,12 +39,16 @@ escape_pango() {
   printf '%s' "$1" | sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g'
 }
 
+# Returns 0 if an item was added, 1 if the prompt was canceled/empty.
 add_item() {
   item=$(rofi -dmenu -i -p "New todo:" -theme "$oneliner_theme" \
     -theme-str 'mainbox { children: [ inputbar ]; } inputbar { width: 100%; }' </dev/null)
-  [ -z "$item" ] && return
+  if [ -z "$item" ]; then
+    return 1
+  fi
   item=$(printf '%s' "$item" | tr '\t' ' ')
-  printf '0\t%s\n' "$item" >>"$todolist_path" && notify "Added" "$item"
+  printf '0\t%s\n' "$item" >>"$todolist_path"
+  return 0
 }
 
 toggle_item() {
@@ -61,7 +65,6 @@ delete_item() {
   tmp=$(mktemp)
   awk -v n="$line_no" 'NR!=n' "$todolist_path" >"$tmp"
   mv "$tmp" "$todolist_path"
-  notify "Deleted" "$text"
 }
 
 edit_item() {
@@ -81,7 +84,6 @@ clear_done() {
   tmp=$(mktemp)
   awk -F'\t' '$1!="1"' "$todolist_path" >"$tmp"
   mv "$tmp" "$todolist_path"
-  notify "Cleared completed items"
 }
 
 # Each move function sets new_row to the 0-based menu row the item landed on
@@ -100,7 +102,7 @@ move_up() {
 move_down() {
   n="$1"
   new_row=""
-  total=$(wc -l < "$todolist_path" | tr -d ' ')
+  total=$(wc -l <"$todolist_path" | tr -d ' ')
   [ "$n" -ge "$total" ] && return
   tmp=$(mktemp)
   awk -v n="$n" '{ l[NR]=$0 } END{ t=l[n]; l[n]=l[n+1]; l[n+1]=t; for(i=1;i<=NR;i++) print l[i] }' \
@@ -130,7 +132,7 @@ while true; do
 
   # -format d makes rofi return the 1-based index of the selected row, so we
   # can map straight to a line number without fragile text matching.
-  # -selected-row keeps the just-moved item highlighted after a refresh.
+  # -selected-row keeps the just-moved/deleted item highlighted after a refresh.
   selected=$(printf '%s' "$menu" | rofi -dmenu -i -markup-rows -format d \
     -selected-row "${preselect:-0}" \
     -p "Todo ($pending_count)" \
@@ -152,8 +154,12 @@ while true; do
   case "$code" in
   0) # Enter
     if [ "$index" = "1" ]; then
-      add_item
-      preselect=0
+      if add_item; then
+        preselect=$(wc -l <"$todolist_path" | tr -d ' ')
+      else
+        # Canceled: stay on "Add new item" (first row).
+        preselect=0
+      fi
     else
       if [ "$line_no" -ge 1 ]; then
         toggle_item "$line_no"
@@ -163,16 +169,30 @@ while true; do
     continue
     ;;
   10) # Alt+d - delete
-    [ "$index" != "1" ] && delete_item "$line_no"
-    break
+    if [ "$index" != "1" ]; then
+      delete_item "$line_no"
+      total_after=$(wc -l <"$todolist_path" | tr -d ' ')
+      if [ "$line_no" -gt "$total_after" ]; then
+        # Deleted item was the last one: land on the new last row (or the
+        # "Add new item" row if the list is now empty).
+        preselect="$total_after"
+      else
+        # Next item has shifted up into the same row.
+        preselect="$line_no"
+      fi
+    fi
+    continue
     ;;
   11) # Alt+e - edit
-    [ "$index" != "1" ] && edit_item "$line_no"
-    break
+    if [ "$index" != "1" ]; then
+      edit_item "$line_no"
+      preselect="$line_no"
+    fi
+    continue
     ;;
   12) # Alt+c - clear completed
     clear_done
-    break
+    continue
     ;;
   13) # Alt+y - yank to clipboard
     if [ "$index" != "1" ]; then
@@ -183,11 +203,17 @@ while true; do
     break
     ;;
   14) # Alt+j - move down
-    [ "$index" != "1" ] && { move_down "$line_no"; preselect="$new_row"; }
+    [ "$index" != "1" ] && {
+      move_down "$line_no"
+      preselect="$new_row"
+    }
     continue
     ;;
   15) # Alt+k - move up
-    [ "$index" != "1" ] && { move_up "$line_no"; preselect="$new_row"; }
+    [ "$index" != "1" ] && {
+      move_up "$line_no"
+      preselect="$new_row"
+    }
     continue
     ;;
   *)
