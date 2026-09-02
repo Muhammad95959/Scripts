@@ -10,7 +10,7 @@ TIMEOUT=5000
 ICON_BASE="/usr/share/icons/Tela-circle-nord"
 SOUND="/usr/share/sounds/freedesktop/stereo/message.oga"
 
-makoctl dismiss -a "$APP_NAME"
+quickshell ipc call notifications dismissApp "$APP_NAME" >/dev/null 2>&1 || true
 
 show_help() {
   cat <<EOF
