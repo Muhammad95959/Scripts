@@ -5,6 +5,7 @@ DATE=$(date +%Y-%m-%d)
 APPS_DIR=/mnt/Disk_D/Muhammad/Linux-Backup/applications
 ZSH_DIR=/mnt/Disk_D/Muhammad/Linux-Backup/zsh_history
 CLIPHIST_DIR=/mnt/Disk_D/Muhammad/Linux-Backup/cliphist_db
+ADB_PATH="/home/muhammad/Android/Sdk/platform-tools/adb"
 
 if [ ! -f "${ZSH_DIR}/zsh_history_${DATE}.bak" ]; then
   mkdir -p "${APPS_DIR}" "${ZSH_DIR}" "${CLIPHIST_DIR}"
@@ -22,4 +23,14 @@ if [ ! -f "${ZSH_DIR}/zsh_history_${DATE}.bak" ]; then
   ~/Scripts/update_Arch-Setup.sh
   mkdir -p ~/.cache/aur && curl -s https://aur.archlinux.org/packages.gz | gzip -d >~/.cache/aur/packages.txt &
   sudo updatedb &
+
+  if [ -f "$ADB_PATH" ] && ! head -n 1 "$ADB_PATH" | grep -q '^#!/bin/bash'; then
+    mv "$ADB_PATH" "${ADB_PATH}.bin"
+    cat << 'EOF' > "$ADB_PATH"
+#!/bin/bash
+HOME="/home/muhammad/Android/config" exec "$(dirname "$0")/adb.bin" "$@"
+EOF
+    chmod +x "$ADB_PATH"
+    rm -rf /home/muhammad/.android 2>/dev/null
+  fi
 fi
